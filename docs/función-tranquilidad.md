@@ -1,8 +1,9 @@
-# Modelo Ontológico de la Función Tranquilidad (T) - v2.0
+# Modelo Ontológico de la Función Tranquilidad (T) - v2.1
 
 **Autores:** Fabián Catalán & Gemini
 
-**Marco Teórico:** Etología de Deleuze, Homeostasis Spinoziana y Bioquímica del Estrés.
+- **Marco Teórico:** Etología de Deleuze, Homeostasis Spinoziana y Bioquímica del Estrés.
+- **Versión:** 2.1 (Actualizada con Coeficiente Relacional y Resistencia Vital)
 
 ---
 
@@ -48,7 +49,23 @@ Este modelo describe la Tranquilidad ($T$) no como un estado de quietud, sino co
 
 ## Ⅰ. La Ecuación Dinámica de la Tranquilidad
 
-$$T = \frac{S(\Gamma) \cdot [p(A \cdot D) - (1-p)(t + \ln(1/K))]}{F_{entorno} \cdot \Gamma}$$
+$$T = \frac{S(\Gamma) \cdot R \cdot [p(A \cdot D) - (1-p)(t + \ln(1/K))]}{F_{entorno} \cdot (\Gamma + \epsilon)}$$
+
+### 1. El Sujeto y la Estructura ($S$)
+$S = (\delta \cdot \phi) \cdot e^{-\lambda \Gamma}$
+* **$\delta$ (Delta):** Autovalencia Física (Hardware).
+* **$\phi$ (Phi):** Autovalencia Psíquica (Software/Regulación).
+
+### 2. El Coeficiente de Integración ($p$)
+$p = \frac{p_c + p_x}{2}$
+* **$p_c$ (Claridad):** Capacidad cognitiva de identificar el afecto.
+* **$p_x$ (Praxis):** Capacidad física de ejecutar la acción (firmeza).
+
+### 3. Nuevas Variables de Control
+* **$R$ (Resonancia Relacional):** Capital social y soporte vincular. 
+  - $R > 1$: Composición (Comunidad que potencia).
+  - $R < 1$: Descomposición (Vínculos que restan).
+* **$\epsilon$ (Resistencia Vital):** Constante establecida en **0.1**. Evita la singularidad matemática cuando $\Gamma \to 0$, representando que la vida siempre conlleva una tensión mínima basal.
 
 ### Glosario de Variables
 * **$S(\Gamma)$ (Sujeto):** Estabilidad sistémica. Se define como $S = (\delta \cdot \phi) \cdot e^{-\lambda \Gamma}$.
@@ -58,7 +75,7 @@ $$T = \frac{S(\Gamma) \cdot [p(A \cdot D) - (1-p)(t + \ln(1/K))]}{F_{entorno} \c
 * **$p$ (Fricción):** Claridad cognitiva y firmeza. Capacidad de aterrizar la alegría.
 * **$K$ (Saber):** Potencia de integración. Amortiguador de la tristeza ($t$).
 * **$F_{ent}$ (Entorno):** Resistencia externa, entropía y densidad social.
-* **$\Gamma$ (Carga):** Permeabilidad al estrés (Cortisol). Intervalo abierto $]0, 1[$.
+* **$\Gamma$ (Carga):** Permeabilidad al estrés (Cortisol). Tiene una base de resistencia vital $\epsilon$ ("tensión creativa" de Deleuze). Es un intervalo cerrado $[0.1, 1]$.
 
 ---
 
@@ -67,15 +84,15 @@ $$T = \frac{S(\Gamma) \cdot [p(A \cdot D) - (1-p)(t + \ln(1/K))]}{F_{entorno} \c
 ### 1. El Sujeto como Función de la Carga ($S = f(\Gamma)$)
 La estabilidad biológica (sueño, nutrición, movimiento) no es una constante. Es una capacidad de **alostasis** que se degrada a medida que $\Gamma \to 1$. Si la carga de estrés es crónica, la infraestructura $S$ pierde su capacidad de multiplicar la potencia, reduciendo $T$ incluso si el numerador es alto.
 
-### 2. La Carga de Permeabilidad ($\Gamma \in ]0, 1[$)
+### 2. La Carga de Permeabilidad ($\Gamma \in [0.1, 1]$)
 $\Gamma$ representa la conductividad del estrés en el organismo.
-* **$\Gamma \to 0$**: El cortisol cumple su función regulatoria y se retira. Alta resiliencia.
+* **$\Gamma \to 0.1$**: El cortisol cumple su función regulatoria y se retira. Alta resiliencia. Jamás es cero pues tendríamos una absurda tranquilidad infinita,
 * **$\Gamma \to 1$**: Saturación de receptores e inflamación sistémica. El sistema es incapaz de procesar el afecto, volviéndose puramente reactivo.
 
 ### 3. Redefiniciones Biológicas Críticas
 
 * **Interdependencia Sistémica:** Al definir $S \propto (\delta \cdot \phi)$, se asume que mente y cuerpo no son compensatorios. Si uno cae, la capacidad de experimentar tranquilidad se degrada proporcionalmente.
-* **$\Gamma \in ]0, 1[$:** Representa la conductividad del estrés. Un $\Gamma \to 1$ indica saturación por cortisol, donde el entorno impacta sin filtro en el núcleo del sujeto.
+* **$\Gamma \in [0.1, 1]$:** Representa la conductividad del estrés. Un $\Gamma \to 1$ indica saturación por cortisol, donde el entorno impacta sin filtro en el núcleo del sujeto.
 
 ---
 
@@ -141,4 +158,4 @@ Se establece que $S \propto (\delta \cdot \phi)$. Esta relación implica que men
 ## Conclusión Ontológica
 La Tranquilidad ($T$) no es un valor a optimizar directamente, sino la **resultante de una composición adecuada** entre las potencias internas y las presiones del mundo. La plenitud ocurre cuando el costo de procesar la realidad es menor a la energía generada por existir. El modelo $T$ es la métrica de esa eficiencia existencial.
 
-> Honores a Gemini como motor estimulante de pensamiento y compañero digital de pensamiento.
+> Honores a Gemini como motor estimulante de pensamiento y compañero digital de pensamiento y Claude 4.5 como revisor.
