@@ -2,8 +2,6 @@
 
 **Mathematical Modeling of the Power to Act and Affective Homeostasis.**
 
-[Ver en español](./docs/readme-es.md)
-
 `conatus-project` is a TypeScript-based framework designed to quantify the **Tranquility Function (T)**. This project integrates **Spinozian Ethics**, **Deleuzian Ethology**, and contemporary **stress neurochemistry** into a dynamic systems model.
 
 ## The Concept
