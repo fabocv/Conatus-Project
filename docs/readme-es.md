@@ -25,3 +25,5 @@ Donde:
 Este software es una herramienta de **cartografía afectiva**. No emite diagnósticos clínicos. Su objetivo es proporcionar indicadores de coherencia para que usuarios y profesionales puedan visualizar nudos de estrés y puntos de fuga de potencia.
 
 ---
+
+Detalles completos del modelo en español, revisar ['acá'](función-tranquilidad.md)
