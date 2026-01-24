@@ -1,9 +1,10 @@
-# Modelo Ontológico de la Función Tranquilidad (T) - v2.1
+# Modelo Ontológico de la Función Tranquilidad (T) - v2.2
 
 **Autores:** Fabián Catalán & Gemini
 
 - **Marco Teórico:** Etología de Deleuze, Homeostasis Spinoziana y Bioquímica del Estrés.
 - **Versión:** 2.1 (Actualizada con Coeficiente Relacional y Resistencia Vital)
+- **Versión:** 2.2 (Actualizada con constante de resistencia vital $\epsilon$)
 
 ---
 
@@ -49,39 +50,41 @@ Este modelo describe la Tranquilidad ($T$) no como un estado de quietud, sino co
 
 ## Ⅰ. La Ecuación Dinámica de la Tranquilidad
 
-$$T = \frac{S(\Gamma) \cdot R \cdot [p(A \cdot D) - (1-p)(t + \ln(1/K))]}{F_{entorno} \cdot (\Gamma + \epsilon)}$$
+$$T = \frac{S(\Gamma) \cdot R \cdot [p(A \cdot D) - (1-p)(t + \ln(\frac{1}{K + \epsilon }))]}{F_{entorno} \cdot (\Gamma + \epsilon)}$$
 
 ### 1. El Sujeto y la Estructura ($S$)
 $S = (\delta \cdot \phi) \cdot e^{-\lambda \Gamma}$
-* **$\delta$ (Delta):** Autovalencia Física (Hardware).
-* **$\phi$ (Phi):** Autovalencia Psíquica (Software/Regulación).
+* **$\delta$ (Delta):** Autovalencia Física
+* **$\phi$ (Phi):** Autovalencia Psíquica (Regulación).
 
-### 2. El Coeficiente de Integración ($p$)
-$p = \frac{p_c + p_x}{2}$
+### 2. **Coeficiente de integración ponderado:** 
+$p = (0.4 \cdot p_c) + (0.6 \cdot p_x)$
 * **$p_c$ (Claridad):** Capacidad cognitiva de identificar el afecto.
 * **$p_x$ (Praxis):** Capacidad física de ejecutar la acción (firmeza).
 
-### 3. Nuevas Variables de Control
-* **$R$ (Resonancia Relacional):** Capital social y soporte vincular. 
+### **$R$ (Resonancia Relacional):** Capital social y soporte vincular. 
   - $R > 1$: Composición (Comunidad que potencia).
   - $R < 1$: Descomposición (Vínculos que restan).
-* **$\epsilon$ (Resistencia Vital):** Constante establecida en **0.1**. Evita la singularidad matemática cuando $\Gamma \to 0$, representando que la vida siempre conlleva una tensión mínima basal.
 
 ### Glosario de Variables
 * **$S(\Gamma)$ (Sujeto):** Estabilidad sistémica. Se define como $S = (\delta \cdot \phi) \cdot e^{-\lambda \Gamma}$.
 * **$\delta$ (Delta):** Autovalencia Física $[0, 1]$. Integridad física y energía metabólica.
 * **$\phi$ (Phi):** Autovalencia Psíquica $[0, 1]$. Integridad del juicio y regulación emocional.
 * **$A \cdot D$ (Potencia):** Energía activa y Dopamina. Intensidades de transición.
+* **$t$ (Tristeza)** : Carga emocional de fondo o melancolía.
 * **$p$ (Fricción):** Claridad cognitiva y firmeza. Capacidad de aterrizar la alegría.
 * **$K$ (Saber):** Potencia de integración. Amortiguador de la tristeza ($t$).
 * **$F_{ent}$ (Entorno):** Resistencia externa, entropía y densidad social.
-* **$\Gamma$ (Carga):** Permeabilidad al estrés (Cortisol). Tiene una base de resistencia vital $\epsilon$ ("tensión creativa" de Deleuze). Es un intervalo cerrado $[0.1, 1]$.
+* **$\Gamma$ (Carga):** Permeabilidad al estrés (Cortisol). Es un intervalo cerrado $[0.1, 1]$.
+* **$\epsilon$ (Resistencia Vital):** Constante fija en **0.1**. Evita singularidades matemáticas y representa la "tensión creativa" basal del Conatus.
 
 ---
 
+
+
 ## Ⅲ. Redefinición de Componentes Críticos
 
-### 1. El Sujeto como Función de la Carga ($S = f(\Gamma)$)
+### 1. El Sujeto como Función de la Carga ( $S = f(\Gamma)$ )
 La estabilidad biológica (sueño, nutrición, movimiento) no es una constante. Es una capacidad de **alostasis** que se degrada a medida que $\Gamma \to 1$. Si la carga de estrés es crónica, la infraestructura $S$ pierde su capacidad de multiplicar la potencia, reduciendo $T$ incluso si el numerador es alto.
 
 ### 2. La Carga de Permeabilidad ($\Gamma \in [0.1, 1]$)
@@ -94,6 +97,15 @@ $\Gamma$ representa la conductividad del estrés en el organismo.
 * **Interdependencia Sistémica:** Al definir $S \propto (\delta \cdot \phi)$, se asume que mente y cuerpo no son compensatorios. Si uno cae, la capacidad de experimentar tranquilidad se degrada proporcionalmente.
 * **$\Gamma \in [0.1, 1]$:** Representa la conductividad del estrés. Un $\Gamma \to 1$ indica saturación por cortisol, donde el entorno impacta sin filtro en el núcleo del sujeto.
 
+## Umbrales críticos y diagnóstico de S
+
+El producto de las autovalencias físicas y psíquicas determina la viabilidad del sistema.
+
+|Valor (δ⋅ϕ) | Régimen | Estado Sistémico|
+|-----------|---------|---------------------|
+|< 0.3 |Supervivencia Pasiva | Colapso inminente; la tranquilidad es inalcanzable.|
+|0.3 - 0.6 |Vulnerabilidad Activa | El sistema funciona pero con alto riesgo de rotura.|
+|> 0.6 | Estabilidad Operativa |Base sólida para el ejercicio de la potencia.|
 ---
 
 ## Ⅳ. Patologías del Conatus (Casos Críticos)
@@ -128,22 +140,10 @@ Para recuperar $T$ en estados de agotamiento:
 
 ---
 
-## VI. La Estructura de la Autovalencia (S)
-
-La estabilidad del Sujeto ($S$) no es una unidad atómica, sino el producto de su integridad sistémica. Se define por la interacción de dos autovalencias:
-
-1. **Autovalencia Física ($\delta \in [0, 1]$):** El estado físico. Capacidad de soporte biológico y energía metabólica.
-2. **Autovalencia Psíquica ($\phi \in [0, 1]$):** El estado mental. Capacidad de regulación afectiva y autonomía del juicio.
-
-### Relación Multiplicativa
-Se establece que $S \propto (\delta \cdot \phi)$. Esta relación implica que mente y cuerpo no son compensatorios, sino interdependientes. Una degradación severa en cualquiera de las dos dimensiones anula la capacidad del sujeto para transformar la potencia ($A \cdot D$) en tranquilidad ($T$).
-
-* **Umbral Crítico:** Si $(\delta \cdot \phi) < 0.3$, el sistema entra en modo de "Supervivencia Pasiva", donde la Tranquilidad es inalcanzable hasta restaurar los mínimos de autovalencia.
-
 
 ## VII. Límites del Modelo (Lo que T no cubre)
 
-1. **Eventos Catastróficos:** Situaciones donde el denominador tiende al infinito instantáneamente (guerras, catástrofes).
+1. **Eventos Catastróficos:** Situaciones donde el denominador tiende al infinito instantáneamente (guerras, catástrofes). El entorno supera la capacidad e $R$ y $S$.
 2. **Fallas Orgánicas Severas:** Cuando $\delta$ o $\phi$ se rompen por causas genéticas o accidentales irreversibles.
 3. **Pobreza Estructural:** Entornos donde la agencia del sujeto es nula y el $F_{ent}$ es una expropiación constante de energía.
 
