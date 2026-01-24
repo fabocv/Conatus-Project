@@ -1,4 +1,4 @@
-# Conatus-project 🌀
+# Conatus-project
 
 **Mathematical Modeling of the Power to Act and Affective Homeostasis.**
 
