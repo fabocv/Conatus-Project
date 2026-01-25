@@ -4,13 +4,23 @@
 
 import { NormalizedData } from "./normalizeResponses";
 
-
+export interface T {
+  p: number;
+  termK: number;
+  S: number;
+  powerTerm: number,
+  sadnessTerm: number;
+  numerator: number;
+  denominator: number;
+  rawT : number;
+  tLikert: number;
+}
 
 export class ConatusEngineV22 {
   private static readonly EPSILON = 0.1;
   private static readonly SCALE_FACTOR = 5.5; // Factor de ajuste para Likert 1-10
 
-  static calculate(data: NormalizedData): number {
+  static calculate(data: NormalizedData): T {
     const p = (0.4 * data.pc + 0.6 * data.px);
     const termK = Math.log(1 / (data.knowledge + this.EPSILON));
     const S = (data.delta * data.phi) * Math.exp(-0.2 * data.sensitivity);
@@ -26,9 +36,19 @@ export class ConatusEngineV22 {
     // --- REESCALADO A LIKERT 1-10 ---
     // Multiplicamos por el factor y sumamos 1 para que el rango sea [1, 10]
     let tLikert = (rawT * this.SCALE_FACTOR) + 1;
+    tLikert = Math.min(Math.max(tLikert, 1), 10);
 
-    // Clamp de seguridad
-    return Math.min(Math.max(tLikert, 1), 10);
+    return {
+      p,
+      termK,
+      S,
+      powerTerm,
+      sadnessTerm,
+      numerator,
+      denominator, 
+      rawT,
+      tLikert
+    };
   }
 
   // Lógica de validación para los umbrales de S

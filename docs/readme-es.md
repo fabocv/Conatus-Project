@@ -43,7 +43,7 @@ Para que el modelo sea un espejo, aplicamos una función de normalización que m
 $$ T_{likert}​=min(10,max(1,(T_{raw}​ \cdot k)+1))$$
 
 Donde:
-- $ T_{raw} = T $
+- $T_{raw} = T$
 - k (Factor de Escala (v2.2) = 5.5): Es el coeficiente que traduce la "presión biológica" al lenguaje de la percepción humana.
 - +1: Establece el piso basal de la existencia (mientras hay vida, hay un mínimo de tranquilidad basal ϵ).
 

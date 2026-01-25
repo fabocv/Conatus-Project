@@ -1,6 +1,6 @@
 
 import { ConatusDiagnostic } from './motor-conatus.ts'; 
-import { ConatusEngineV22 } from './motor-engine.ts';
+import { ConatusEngineV22, T } from './motor-engine.ts';
 import { normalizeResponses } from './normalizeResponses.ts';
 import inquirer from 'inquirer';
 
@@ -31,17 +31,23 @@ async function runInteractiveSurvey() {
   const cleanData = normalizeResponses(answers);
 
   // 2. Cálculo de T
-  const T = ConatusEngineV22.calculate(cleanData);
+  const T:T = ConatusEngineV22.calculate(cleanData);
 
   // 3. Diagnóstico
-  const report = ConatusDiagnostic.analyzeCoherence(T, answers.T_intuition);
+  const report = ConatusDiagnostic.analyzeCoherence(T.tLikert, answers.T_intuition, cleanData, T);
 
   // 4. Reporte Final
   console.log("==========================================");
-  console.log(`RESULTADO T CALCULADO: ${T.toFixed(2)}`);
+  console.log(`RESULTADO T CALCULADO: ${T.tLikert.toFixed(2)}`);
   console.log(`PERCEPCIÓN USUARIO:   ${answers.T_intuition.toFixed(2)}`);
-  console.log(`ESTADO: ${report.perceptionStatus.toUpperCase()}`);
-  console.log(`INSIGHT: ${report.insight}`);
+  console.log(`ETIQUETA DE BALANCE DE LA PSIQUE: ${report.balanceContable.label}`);
+  console.log(`CONCLUSIÓN DE BALANCE PSIQUE: ${report.balanceContable.advice}`);
+  console.log(`MARGEN DE RESILIENCIA (Colchón de Paz): ${report.colchonPaz}`);
+  console.log(`BRÚJULA COGNITIVA: ${report.brujula.insight} (${report.brujula.valor})`);
+  console.log(`PERMEABILIDAD EMOCIONAL: ${report.porosidad.insight} (${report.porosidad.valor})`);
+  console.log(`PESO(FRICCIÓN) DE LA REALIDAD:  ${report.friccion.insight} (${report.friccion.valor})`);
+  console.log(`>>> ESTADO ACTUAL: ${report.perceptionStatus.toUpperCase()}`);
+  console.log(`>>> CONCLUSIÓN: ${report.insight}`);
   if (answers.user_note) {
     console.log(`NOTA CUALITATIVA: "${answers.user_note}"`);
   }
