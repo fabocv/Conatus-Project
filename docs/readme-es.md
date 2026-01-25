@@ -84,7 +84,7 @@ Esta es una **herramienta de mapeo afectivo** destinada a la recalibración exis
 
 ### 📝 Encuesta Fenomenológica v2.2
 
-Utiliza las siguientes preguntas para alimentar el modelo. Cada respuesta debe mapearse a un valor entre **0.1 y 1.0**.
+Utiliza las siguientes preguntas para alimentar el modelo. Cada respuesta debe mapearse a un valor entre **1 y 10 (Escala Likert)**.
 
 | Variable | Dimensión | Pregunta Fenomenológica (La Experiencia Sentida) |
 | :--- | :--- | :--- |

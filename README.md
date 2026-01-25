@@ -85,7 +85,7 @@ This is an **affective mapping tool** intended for existential recalibration. It
 
 ### 📝 Conatus-Project v2.2: Phenomenological Survey
 
-Use the following questions to feed the model. Each response should be mapped to a value between **0.1 and 1.0**.
+Use the following questions to feed the model. Each response should be mapped to a value between **1 and 10 (Likert Scale)**.
 
 | Variable | Dimension | Phenomenological Question (The Felt Experience) |
 | :--- | :--- | :--- |
