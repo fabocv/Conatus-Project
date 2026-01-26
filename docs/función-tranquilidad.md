@@ -92,7 +92,20 @@ $\Gamma$ representa la conductividad del estrés en el organismo.
 * **$\Gamma \to 0.1$**: El cortisol cumple su función regulatoria y se retira. Alta resiliencia. Jamás es cero pues tendríamos una absurda tranquilidad infinita,
 * **$\Gamma \to 1$**: Saturación de receptores e inflamación sistémica. El sistema es incapaz de procesar el afecto, volviéndose puramente reactivo.
 
-### 3. Redefiniciones Biológicas Críticas
+### 3. Mapa de Territorios (Clusters de Diagnóstico)
+
+El sistema categoriza el estado del sujeto en uno de los 6 territorios ontológicos:
+
+| Cluster | Nombre | Diagnóstico |
+| :--- | :--- | :--- |
+| **K** | **Flujo (Flow)** | Potencia alineada con el saber. Alegría máxima. |
+| **L** | **Resistencia Pasiva** | Estructura sólida pero sin impulso activo. |
+| **M** | **Anestesia** | Alta eficiencia mecánica pero desconexión afectiva. |
+| **N** | **La Niebla** | Energía presente pero sin orientación (K bajo). |
+| **O** | **Cortocircuito** | Hiper-aceleración que degrada la infraestructura (S). |
+| **P** | **El Abismo** | Colapso del Conatus. Supervivencia pasiva. |
+
+### 4. Redefiniciones Biológicas Críticas
 
 * **Interdependencia Sistémica:** Al definir $S \propto (\delta \cdot \phi)$, se asume que mente y cuerpo no son compensatorios. Si uno cae, la capacidad de experimentar tranquilidad se degrada proporcionalmente.
 * **$\Gamma \in [0.1, 1]$:** Representa la conductividad del estrés. Un $\Gamma \to 1$ indica saturación por cortisol, donde el entorno impacta sin filtro en el núcleo del sujeto.

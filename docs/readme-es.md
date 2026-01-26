@@ -2,6 +2,8 @@
 
 **Modelado Matemático de la Potencia de Actuar y Homeostasis Afectiva.**
 
+**Autor**: Fabián Catalán
+
 `conatus-project` es un framework basado en TypeScript diseñado para cuantificar la **Tranquilidad ($T$)**. Basado en la síntesis ontológica de **Spinoza**, **Deleuze** y la **Bioquímica del Estrés**, mide la eficiencia del *Conatus*: el esfuerzo por perseverar en el propio ser.
 
 ---
@@ -17,66 +19,87 @@ El modelo define la tranquilidad no como estasis, sino como una **tracción exis
 
 ## Ⅱ. La Ecuación Maestra (v2.2)
 
-La Potencia de Actuar ($T$) se calcula de la siguiente manera:
+La Potencia de Actuar ($T$) se calcula de la siguiente manera:Esta versión integra la **Resonancia Relacional ($R$)** y la **Resistencia Vital ($\epsilon$)** para reflejar la tensión creativa basal y evitar singularidades matemáticas.
 
 $$T = \frac{S(\Gamma) \cdot R \cdot [p(A \cdot D) - (1-p)(t + \ln(\frac{1}{K + \epsilon }))]}{F_{entorno} \cdot (\Gamma + \epsilon)}$$
 
-### Variables Clave y Mapeo de Encuesta
+### Glosario de Variables
+* **$S(\Gamma)$ (Sujeto):** Estabilidad sistémica. Se define como $S = (\delta \cdot \phi) \cdot e^{-\lambda \Gamma}$.
+* **$\delta$ (Delta):** Autovalencia Física (Integridad y energía metabólica).
+* **$\phi$ (Phi):** Autovalencia Psíquica (Integridad del juicio y regulación).
+* **$R$ (Resonancia):** Capital social y soporte vincular ($R > 1$ potencia; $R < 1$ resta).
+* **$A \cdot D$ (Potencia):** Energía activa y Dopamina. Intensidades de transición.
+* **$p$ (Integración):** Coeficiente ponderado: $(0.4 \cdot p_c) + (0.6 \cdot p_x)$.
+* **$t$ (Tristeza):** Carga emocional de fondo o melancolía.
+* **$K$ (Saber):** Potencia de integración intelectual (amortiguador de $t$).
+* **$\Gamma$ (Carga):** Permeabilidad al estrés (Cortisol) en el intervalo $[0.1, 1]$.
+* **$\epsilon$ (Resistencia):** Constante fija (**0.1**) que representa la tensión creativa basal.
 
-| Variable | Métrica / Pregunta de Encuesta | Rol Ontológico |
+---
+
+## Ⅱ. Mapa de Territorios y Salidas Humanizadas
+
+El sistema categoriza tu estado en uno de los 6 territorios ontológicos basándose en la configuración de tus variables:
+
+| Cluster | Nombre | Esencia del Estado | El Insight Clave |
+| :--- | :--- | :--- | :--- |
+| **K** | **El Estado de Flujo** | Sintonía total entre fuerza y mente. | "Tu mente y tu cuerpo bailan al mismo ritmo." |
+| **L** | **La Resistencia** | El entorno pesa, pero tu voluntad no cede. | "Estás sosteniendo un gran peso con mucha dignidad." |
+| **M** | **La Anestesia** | Desconexión: mente "bien", cuerpo en reserva. | "Tu cabeza dice 'estoy bien', pero tus números están en reserva." |
+| **N** | **La Niebla** | Energía presente pero sin dirección (K bajo). | "Tienes el motor encendido, pero no ves a dónde vas." |
+| **O** | **El Cortocircuito** | Hiper-aceleración con gasto energético crítico. | "Vas muy rápido y los cables se están calentando." |
+| **P** | **El Vacío** | Inercia crítica. Pausa forzada del sistema. | "El sistema se ha detenido para protegerse." |
+
+
+---
+
+## Ⅲ. Rasgos Críticos por Territorio
+
+Para cada cluster, el sistema identifica los dos rasgos que mejor definen tu momento:
+
+* **K (Flujo):** Tracción fluida / Claridad total.
+* **L (Resistencia):** Esfuerzo Heroico / Aguante.
+* **M (Anestesia):** Gasto Invisible / Falsa Calma.
+* **N (Niebla):** Desorientación / Potencia Desperdiciada.
+* **O (Cortocircuito):** Sobre-excitación / Riesgo de Quiebre.
+* **P (Vacío):** Inercia Crítica / Silencio de Motor.
+
+---
+
+## Ⅳ. Diagnóstico de Viabilidad ($S = \delta \cdot \phi$)
+
+| Valor | Régimen | Estado Sistémico |
 | :--- | :--- | :--- |
-| **$\delta$ (Delta)** | Energía física, calidad del sueño y nutrición. | Autovalencia Física |
-| **$\phi$ (Phi)** | Claridad mental y autorregulación emocional. | Autovalencia Psíquica |
-| **$A \cdot D$** | Motivación y búsqueda de metas (Dopamina). | Potencia Activa |
-| **$t$** | Peso emocional de fondo o melancolía. | Tristeza de Fondo |
-| **$p_c$** | Capacidad de identificar cognitivamente los afectos. | Claridad Cognitiva |
-| **$p_x$** | Firmeza y resolución en la ejecución física. | Praxis / Firmeza |
-| **$K$** | Comprensión de las causas de los afectos actuales. | Conocimiento de Integración |
-| **$F_{ent}$** | Resistencia ambiental y densidad social. | Fricción del Entorno |
-| **$\Gamma$** | Permeabilidad al estrés y saturación de cortisol. | Carga Alostática |
-| **$R$** | Calidad del capital social y vínculos de soporte. | Resonancia Relacional |
-| **$\epsilon$** | **Constante: 0.1** | Resistencia Vital |
+| **< 0.3** | **Supervivencia Pasiva** | Colapso inminente. La tranquilidad es inalcanzable. |
+| **0.3 - 0.6** | **Vulnerabilidad Activa** | Sistema funcional pero con alto riesgo de rotura. |
+| **> 0.6** | **Estabilidad Operativa** | Base sólida para el ejercicio de la potencia. |
 
 ---
 
-## Ⅲ. Arquitectura Técnica
+## Ⅴ. Serenidad y Ética
 
-### 1. Infraestructura Sistémica $S(\Gamma)$
-La estabilidad estructural decae exponencialmente a medida que el estrés ($\Gamma$) aumenta:
-$$S = (\delta \cdot \phi) \cdot e^{-\lambda \Gamma}$$
-
-### 2. Integración Ponderada ($p$)
-La capacidad de aterrizar la potencia depende más de la firmeza ($p_x$) que de la mera claridad ($p_c$):
-$$p = (0.4 \cdot p_c) + (0.6 \cdot p_x)$$
+En este modelo, la **Serenidad** no es un dato de entrada, sino la resultante de la **transparencia interna**: cuando tu claridad ($p_c$) y tu firmeza ($p_x$) se alinean, la fricción interna desaparece.
 
 ---
 
-## Ⅳ. Diagnósticos Ontológicos
+## Pre-Diagnósticos: Patologías del Conatus
 
-El sistema identifica cinco "Patologías del Conatus" principales:
+1. **Autoexplotación:** Uso de la energía cognitiva para suprimir la emocionalidad. El sujeto infla el numerador mediante logros mientras agota sus reservas de $S$.
+2. **Eficiencia Anestesiada:** Forzar la firmeza ($p \to 1$) para no sentir. Tranquilidad quebradiza por falta de integración real ($K$).
+3. **Parálisis por Análisis (Hiper-K):** El saber se vuelve un sumidero de energía que no se traduce en acción ($p$), aumentando la frustración.
+4. **Místico Disociado:** Búsqueda de $T$ ignorando la degradación de $S$ o la hostilidad del entorno.
+5. **Hiper-Resistencia:** Confianza ciega en que la voluntad ($p$) vencerá cualquier entorno ($F_{ent}$) superior, ignorando la fatiga de materiales.
 
-1. **Autoexplotación:** Usar la potencia activa ($A$) para suprimir el agotamiento; el éxito oculta el decaimiento de $S$.
-2. **Eficiencia Anestesiada:** Forzar $p \to 1$ para evitar sentir; paz quebradiza sin integración ($K$).
-3. **Parálisis por Análisis (Hiper-K):** El conocimiento se vuelve un sumidero de energía que no se traduce en praxis ($p$).
-4. **Místico Disociado:** Buscar $T$ mediante bypass espiritual ignorando la degradación de $S$.
-5. **Hiper-Resistencia:** Fe ciega en que la voluntad ($p$) puede vencer una fricción ambiental ($F_{ent}$) superior.
 
----
+## Protocolo de Re-sensibilización
 
-## Ⅴ. Umbrales de Viabilidad ($S$)
-
-El producto de la autovalencia física ($\delta$) y psíquica ($\phi$) determina la viabilidad del sistema:
-
-| Valor ($\delta \cdot \phi$) | Régimen | Estado Sistémico |
-| :--- | :--- | :--- |
-| **< 0.3** | Supervivencia Pasiva | Colapso inminente; $T$ es inalcanzable. |
-| **0.3 - 0.6** | Vulnerabilidad Activa | Funcional pero con alto riesgo de rotura. |
-| **> 0.6** | Estabilidad Operativa | Base sólida para el ejercicio de la potencia. |
+Para recuperar $T$ en estados de agotamiento o autoexplotación:
+1. **Bajar la Potencia ($A$):** Permitir que la tristeza ($t$) emerja para ser integrada.
+2. **Restaurar Autovalencias:** Prioridad absoluta al descanso ($\delta$) y al silencio cognitivo ($\phi$).
+3. **Integración Ontológica ($K$):** Comprender las causas de la carga para reducir la permeabilidad ($\Gamma$).
+4. **Re-anclaje ($p$):** Sustituir el hacer competitivo por el movimiento consciente.
 
 ---
-
-## ⚖️ Ética y Alcance
-Esta es una **herramienta de mapeo afectivo** destinada a la recalibración existencial. No proporciona diagnósticos médicos o clínicos. Su propósito es visualizar nodos de estrés y fugas de potencia para fomentar "ideas adecuadas" spinozianas.
 
 > *"La felicidad no es el premio de la virtud, sino la virtud misma."* — **Baruch Spinoza**
 
@@ -101,18 +124,7 @@ Utiliza las siguientes preguntas para alimentar el modelo. Cada respuesta debe m
 
 ---
 
-## Ⅵ. Interpretación de Resultados
-
-### 1. La Brecha Potencia-Conocimiento
-* **Si $T$ es alta pero $K < 0.3$:** Experimentas "Alegría Ciega". Te sientes potente pero no entiendes por qué; estado vulnerable a cambios del entorno.
-* **Si $K$ es alto pero $T$ es baja:** Estás en "Parálisis por Análisis". Tienes el mapa, pero te falta el combustible. Aumenta $A$ o $p_x$.
-
-### 2. Saturación de Estrés ($\Gamma$)
-* **Si $\Gamma > 0.8$:** Independientemente de tu $A$ o $K$, tu sistema está saturado. La prioridad es restaurar $S$ mediante descanso ($\delta$) y silencio ($\phi$).
-
----
-
-## Ⅶ. Instalación y Ejecución
+## Instalación y Ejecución
 
 El framework se encuentra en la carpeta `scripts`.
 
@@ -138,13 +150,7 @@ npm install
 npm start
 ```
 
-## Ⅷ. Implicancias Prácticas de Viabilidad
-Valor	Régimen	Implicancia Práctica
-< 0.3	Supervivencia Pasiva	Detén toda producción no esencial. Prioriza sueño y seguridad básica.
-0.3 - 0.6	Vulnerabilidad Activa	Puedes actuar, pero tu "armadura" es delgada. Evita entornos de alta fricción.
-> 0.6	Estabilidad Operativa	Tu Conatus está bien cimentado. Es momento de expansión y K complejo.
-
-# Conatus Project: Documentación de la Métrica Likert (v2.2)
+# Conatus Project v2.2: Documentación de la Métrica Likert
 
 ## 1. El Concepto: Simetría Ontológica
 En las versiones iniciales, el motor arrojaba un valor de **Tranquilidad ($T$)** basado en mecánica de fluidos y termodinámica, resultando en números abstractos (ej. `1.12`). La transformación a **Escala Likert 1-10 (Flotante)** permite que el cálculo matemático sea simétrico a la percepción humana, facilitando el diagnóstico de **Coherencia Afectiva**.
@@ -206,6 +212,3 @@ $$ \Delta = | T_{usuario} - T_{calculada} | $$
 - Δ>1.5 (Desconectado): Existe un Punto Ciego.
     - Si Tusuario​>Tcalc​: Posible Anestesia Operativa (Cluster M). El sujeto no siente el desgaste que su cuerpo reporta.
     - Si Tusuario​<Tcalc​: Posible Hiper-reflexividad. El sujeto se siente peor de lo que su infraestructura sugiere.
-
-
-Detalles completos del modelo en español, revisar ['acá'](función-tranquilidad.md)

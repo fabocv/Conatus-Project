@@ -16,10 +16,12 @@ export interface CoherenceReport {
   brujula: DatoInsight,
   porosidad: DatoInsight,
   friccion: DatoInsight,
+  serenidad: NivelDescripcion,
 }
 
-export interface BalancePsique {label: string, color:string, advice:string}
-export interface DatoInsight { valor: number, insight: string }
+export interface BalancePsique {label: string, color:string, advice:string};
+export interface DatoInsight { valor: number, insight: string };
+export interface NivelDescripcion { nivel: string, descripcion: string };
 
 export class ConatusDiagnostic {
 
@@ -128,7 +130,7 @@ export class ConatusDiagnostic {
       insight += "Tu percepción coincide con tu estado biológico. Posees una buena lectura de tus afectos.";
     } else if (gap > 1.5) {
       status = 'Desconectado';
-      insight = "Tu mente percibe calma, pero el sistema detecta un costo biológico alto. Riesgo de anestesia operativa (Cluster M).";
+      insight = "Tu mente percibe calma, pero el sistema detecta un costo biológico alto. Riesgo de anestesia operativa.";
       if (rawData.envPressure <= 2 && rawData.delta < 5) {
         insight += `\n⚠️ ADVERTENCIA: Tu tranquilidad actual depende de la baja presión externa (${rawData.envPressure}). Un aumento moderado del entorno podría desplomar tu bienestar debido a tu baja reserva física.`;
       }
@@ -148,6 +150,7 @@ export class ConatusDiagnostic {
       brujula: this.getBrujula(T.termK),
       porosidad: this.getPorosidad(T.S),
       friccion: this.getFriccion(T.denominator),
+      serenidad: this.getSerenity(T)
     };
   }
 
@@ -184,7 +187,7 @@ export class ConatusDiagnostic {
     } else {
         insight = "Brújula dispersa. Te cuesta encontrarle el sentido lógico a tu estado actual.";
     }
-    return { valor: termK, insight };
+    return { valor: Number(termK.toFixed(2)), insight };
   }
 
   static getPorosidad(S: number): DatoInsight {
@@ -196,7 +199,7 @@ export class ConatusDiagnostic {
     } else {
         insight = "Blindaje afectivo. Estás muy cerrado al entorno, lo cual te protege pero te aísla.";
     }
-    return { valor: S, insight };
+    return { valor: Number(S.toFixed(2)), insight };
   }
 
   static getFriccion(denominator: number): DatoInsight {
@@ -209,7 +212,29 @@ export class ConatusDiagnostic {
     } else {
         insight = "Camino despejado. Tu infraestructura y entorno están fluyendo sin oponer resistencia.";
     }
-    return { valor: denominator, insight };
+    return { valor: Number(denominator.toFixed(2)), insight };
+  }
+
+  static getSerenity(resT: T): NivelDescripcion {
+    const ratio = resT.powerTerm / (resT.sadnessTerm || 0.1);
+    const isRational = resT.termK > 0;
+    
+    if (resT.tLikert >= 7 && isRational && ratio > 1.5) {
+        return { 
+            nivel: "Serenidad Estoica (Eutimia)", 
+            descripcion: "Tu paz es profunda, comprendida y sostenible." 
+        };
+    } else if (resT.tLikert >= 7 && !isRational) {
+        return { 
+            nivel: "Serenidad Frágil (Euforia)", 
+            descripcion: "Estás bien, pero no sabes por qué. Es un estado vulnerable al cambio." 
+        };
+    } else {
+        return { 
+            nivel: "Inquietud del Alma", 
+            descripcion: "Tu espíritu aún está en lucha con sus propias sombras o falta de energía." 
+        };
+    }
   }
 
   static colchonPaz(powerTerm: number, sadnessTerm: number): string {
