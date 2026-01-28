@@ -8,6 +8,8 @@ export interface T {
   p: number;
   termK: number;
   S: number;
+  S_gamma: number;
+  A_D: number;
   powerTerm: number,
   sadnessTerm: number;
   numerator: number;
@@ -23,10 +25,12 @@ export class ConatusEngineV22 {
   static calculate(data: NormalizedData): T {
     const p = (0.4 * data.pc + 0.6 * data.px);
     const termK = Math.log(1 / (data.knowledge + this.EPSILON));
-    const S = (data.delta * data.phi) * Math.exp(-0.2 * data.sensitivity);
+    const S = (data.delta * data.phi) 
+    const S_gamma = S * Math.exp(-0.2 * data.sensitivity);
 
-    const powerTerm = p * (data.energy * data.reward);
-    const sadnessTerm = (1 - p) * (data.sadness + termK);
+    const A_D = data.energy * data.reward;
+    const powerTerm = p * A_D
+    const sadnessTerm = (1 - p) * (data.sadness + termK); // fricción residual del sistema cuando la integración (p) es baja
     
     const numerator = S * data.relational * (powerTerm - sadnessTerm);
     const denominator = (data.envPressure + 1) * (data.sensitivity + this.EPSILON);
@@ -42,6 +46,8 @@ export class ConatusEngineV22 {
       p,
       termK,
       S,
+      S_gamma,
+      A_D,
       powerTerm,
       sadnessTerm,
       numerator,

@@ -17,7 +17,25 @@ export interface CoherenceReport {
   porosidad: DatoInsight,
   friccion: DatoInsight,
   serenidad: NivelDescripcion,
+  viabilidad: string;
+  territorio: string;
+  consejo: string;
+  rasgos: string[];
+  receta: string[];
+  alertas: string[];
 }
+
+interface ClassificationInput {
+  tLikert: number;      // T calculada [1–10]
+  deltaIndex: number;   // Δ
+  sadness: number;      // t [1–10]
+  knowledge: number;    // K [1–10]
+  integration: number;  // p [0–1]
+  drive: number;        // A·D [1–10]
+  envPressure: number;  // F_ent [1–10]
+  gamma: number;        // Γ [0–1]
+}
+
 
 export interface BalancePsique {label: string, color:string, advice:string};
 export interface DatoInsight { valor: number, insight: string };
@@ -139,6 +157,8 @@ export class ConatusDiagnostic {
       insight = "Te percibes con menos tranquilidad de la que tu infraestructura sugiere. Posible sesgo cognitivo de negatividad o hiper-reflexividad.";
     }
 
+    const {viabilidad, territorio, consejo, rasgos, receta, alertas} = this.clusteringResume(T, rawData);
+
     return {
       tCalculated: tCalc,
       tIntuition: tUser,
@@ -150,8 +170,198 @@ export class ConatusDiagnostic {
       brujula: this.getBrujula(T.termK),
       porosidad: this.getPorosidad(T.S),
       friccion: this.getFriccion(T.denominator),
-      serenidad: this.getSerenity(T)
+      serenidad: this.getSerenity(T),
+      viabilidad,
+      territorio,
+      consejo,
+      rasgos,
+      receta,
+      alertas,
     };
+  }
+
+  static classifyTerritory(input: ClassificationInput): string {
+    const {
+      tLikert,
+      deltaIndex,
+      sadness,
+      knowledge,
+      integration,
+      drive,
+      envPressure,
+      gamma
+    } = input;
+
+    /* ===============================
+      1. ESTADOS DE COLAPSO (PRIORIDAD)
+      =============================== */
+
+    if (tLikert <= 1.5 && drive <= 3 && integration < 0.3) {
+      return "P"; // Vacío
+    }
+
+    if (drive >= 8 && gamma >= 0.8 && tLikert <= 4) {
+      return "O"; // Cortocircuito
+    }
+
+    /* ===============================
+      2. DESCONEXIONES FUNCIONALES
+      =============================== */
+
+    if (deltaIndex > 1.5 && tLikert < 5 && knowledge >= 6) {
+      return "M"; // Anestesia
+    }
+
+    /* ===============================
+      3. ESTADOS SANOS / ESTABLES
+      =============================== */
+
+    // FLUJO — regla fuerte
+    if (
+      tLikert >= 7.5 &&
+      deltaIndex <= 1.5 &&
+      sadness <= 3 &&
+      knowledge >= 6 &&
+      integration >= 0.6
+    ) {
+      return "K"; // Flujo
+    }
+
+    // RESISTENCIA
+    if (
+      tLikert >= 5 &&
+      envPressure >= 6 &&
+      integration >= 0.5
+    ) {
+      return "L"; // Resistencia
+    }
+
+    /* ===============================
+      4. ESTADOS INTERMEDIOS
+      =============================== */
+
+    if (
+      drive >= 5 &&
+      knowledge < 5 &&
+      integration < 0.5
+    ) {
+      return "N"; // Niebla
+    }
+
+    /* ===============================
+      5. FALLBACK SEGURO
+      =============================== */
+
+    // Si el sistema está vivo y funcional, nunca caer por defecto en N
+    return tLikert >= 5 ? "L" : "N";
+  }
+
+
+  static clusteringResume(T:T, rawData:any) {
+    // D. Lógica de Territorios (Clustering)
+    let territorio = "";
+    let insight = "";
+    let consejo = "";
+    let receta: string[] = [];
+    let rasgos: string[] = [];
+    const alertas: string[] = [];
+    const input = {
+      tLikert: T.tLikert,
+      deltaIndex: rawData.delta,
+      sadness: T.sadnessTerm,
+      knowledge: T.termK,
+      integration: T.p,
+      drive: T.A_D,
+      envPressure: rawData.envPressure,
+      gamma: rawData.sensitivity
+    }
+    const territory = this.classifyTerritory( input );
+
+    // Clasificación por lógica de variables
+    if ('K' === territory) {
+      territorio = "K - Estado de Flujo";
+      insight = "Tu mente y tu cuerpo están bailando al mismo ritmo.";
+      consejo = "Sigue así, es momento de crear o emprender.";
+      rasgos.push("Tracción fluida", "Claridad total");
+      receta = [
+      "Fase de Expansión: Es momento de crear, emprender o profundizar en tus vínculos.",
+      0.1*rawData.relational > 0.7 ? "Sinergia: Tu entorno potencia tu flujo, comparte tu energía." : "Flujo Solitario: Aprovecha tu independencia para proyectos de alta concentración."
+    ];
+    } 
+    else if ('L' === territory) {
+      territorio = "L - La Resistencia";
+      insight = "Estás sosteniendo un gran peso con mucha dignidad.";
+      consejo = "Reconoce tu fuerza, pero no olvides buscar alivio pronto.";
+      rasgos.push("Esfuerzo Heroico", "Aguante");
+      receta = [
+        "Delegación: Tu voluntad es de hierro, pero tu estructura necesita relevo.",
+        0.1*rawData.relational > 0.6 ? "Apoyo en Trinchera: Pide ayuda a tu red, no tienes que cargar esto solo." : "Alerta de Fatiga: Sin red de apoyo (R baja), tu riesgo de colapso es inminente. Reduce Fent."
+      ];
+    }
+    else if ('M' === territory) {
+      territorio = "M - La Anestesia";
+      insight = "Tu cabeza dice 'estoy bien', pero tus números están en reserva.";
+      consejo = "Escucha a tu cuerpo, no a tus planes. Descansa por precaución.";
+      rasgos.push("Gasto Invisible", "Falsa Calma");
+      receta = [
+        "Frenado de Emergencia: Tu cuerpo está en modo automático. Detente antes de que el daño sea estructural.",
+        "Espejo Ontológico: Habla con alguien de confianza (subir pc) para reconectar con tu cansancio real."
+      ];
+    }
+    else if ('N' === territory) {
+      territorio = "N - La Niebla";
+      insight = "Tienes el motor encendido, pero no ves a dónde vas.";
+      consejo = "No aceleres. Quédate quieto hasta que recuperes tu brújula.";
+      rasgos.push("Desorientación", "Potencia Desperdiciada");
+      receta = [
+        "Anclaje Manual: Haz algo físico que no requiera pensar (limpiar, caminar).",
+        "Poda de Decisiones: Cancela compromisos que requieran juicio cognitivo por 48h."
+      ];
+    }
+    else if ('O' === territory) {
+      territorio = "O - El Cortocircuito";
+      insight = "Vas muy rápido y los cables se están calentando.";
+      consejo = "Baja la intensidad. Menos velocidad hoy es más vida mañana.";
+      rasgos.push("Sobre-excitación", "Riesgo de Quiebre");
+      receta = [
+        "Bajar la Temperatura: Silencio, oscuridad y desconexión digital total.",
+        "Reducción de Gamma: Identifica el estresor externo y bloquéalo temporalmente."
+      ];
+    }
+    else {
+      territorio = "P - El Vacío";
+      insight = "El sistema se ha detenido para protegerse.";
+      consejo = "No te juzgues. Hoy tu única meta es recuperar energía básica.";
+      rasgos.push("Inercia Crítica", "Silencio de Motor Biológico");
+      receta = [
+        "Aceptación: No te juzgues por no poder. Hoy tu única meta es existir.",
+        rawData.relational > 0.6 ? "Cuidado Externo: Deja que tu red (R) se encargue de la logística vital." : "Economía de Guerra: Aíslate de toda demanda externa. Prioriza sueño y nutrición."
+      ];
+    }
+
+    // E. Diagnóstico de Viabilidad
+    let viabilidad = "";
+    if (T.S < 0.3) viabilidad = "Supervivencia Pasiva (Crítico)";
+    else if (T.S <= 0.6) viabilidad = "Vulnerabilidad Activa";
+    else viabilidad = "Estabilidad Operativa";
+
+    // F. Alerta de Anestesia Operativa (v2.2 Extra logic)
+    if (0.1*rawData.px > 0.8 && 0.1*rawData.delta < 0.4 && 0.1*rawData.pc < 0.3) {
+      alertas.push("ANESTESIA OPERATIVA: Desconexión detectada entre ejecución y estado biológico.");
+    }
+
+    if (0.1*rawData.t > 0.7) alertas.push("RIESGO DE COLAPSO POR MELANCOLÍA: El lastre emocional es crítico.");
+    
+    const isFugaTermica = T.termK > (T.S + 0.2);
+    const isResonanciaBaja = 0.1*rawData.relational < 0.4;
+
+  // 4. ALERTAS Y BALANCE
+  if (isFugaTermica) alertas.push("FUGA TÉRMICA: Tu intelecto está drenando tu batería biológica.");
+  if (isResonanciaBaja && T.rawT < 1.2) alertas.push("AISLAMIENTO CRÍTICO: Procesas el desgaste sin red de seguridad."); //rawt o tlikert ojo
+
+
+    if (alertas.length == 0) alertas.push("sin alertas por ahora.")
+    return {viabilidad, territorio, consejo, rasgos, receta, alertas}
   }
 
   static analyzeEconomy(powerTerm: number, sadnessTerm: number): BalancePsique {

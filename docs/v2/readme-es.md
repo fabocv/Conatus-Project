@@ -66,7 +66,7 @@ Para cada cluster, el sistema identifica los dos rasgos que mejor definen tu mom
 
 ---
 
-## Ⅳ. Diagnóstico de Viabilidad ($S = \delta \cdot \phi$)
+## Ⅳ. Diagnóstico de Viabilidad ($\delta \cdot \phi$)
 
 | Valor | Régimen | Estado Sistémico |
 | :--- | :--- | :--- |
@@ -105,7 +105,7 @@ Para recuperar $T$ en estados de agotamiento o autoexplotación:
 
 ---
 
-### 📝 Encuesta Fenomenológica v2.2
+### Encuesta Fenomenológica v2.2
 
 Utiliza las siguientes preguntas para alimentar el modelo. Cada respuesta debe mapearse a un valor entre **1 y 10 (Escala Likert)**.
 

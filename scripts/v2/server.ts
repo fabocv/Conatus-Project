@@ -38,16 +38,27 @@ async function runInteractiveSurvey() {
 
   // 4. Reporte Final
   console.log("==========================================");
-  console.log(`RESULTADO T CALCULADO: ${T.tLikert.toFixed(2)}`);
+  console.log(`RESULTADO T CALCULADO: ${T.tLikert.toFixed(2)} (T_raw = ${T.rawT.toFixed(3)})`);
   console.log(`PERCEPCIÓN USUARIO:   ${answers.T_intuition.toFixed(2)}`);
+  console.log("SERENIDAD")
+  console.log(`  > SERENIDAD NIVEL: ${report.serenidad.nivel}`);
+  console.log(`  > SERENIDAD DESCRIPCIÓN: ${report.serenidad.descripcion}`);
+  console.log(`VIABILIDAD: ${report.viabilidad}`);
+  console.log(`TERRITORIO: ${report.territorio}`);
+  console.log(`CONSEJO: ${report.consejo}`);
+  console.log(`RASGOS: ${report.rasgos}`);
+  console.log(`ALERTAS: \n  *${report.alertas}`);
+  console.log(`CONCLUSIONES: ${report.insight}`);
+  console.log(`RECETAS GENÉRICAS: \n  *${report.receta.join("\n  * ")}`);
+  console.log("\n---- DETALLES FINOS ----")
   console.log(`ETIQUETA DE BALANCE DE LA PSIQUE: ${report.balanceContable.label}`);
   console.log(`CONCLUSIÓN DE BALANCE PSIQUE: ${report.balanceContable.advice}`);
   console.log(`MARGEN DE RESILIENCIA (Colchón de Paz): ${report.colchonPaz}`);
   console.log(`BRÚJULA COGNITIVA: ${report.brujula.insight} (${report.brujula.valor})`);
   console.log(`PERMEABILIDAD EMOCIONAL: ${report.porosidad.insight} (${report.porosidad.valor})`);
-  console.log(`PESO(FRICCIÓN) DE LA REALIDAD:  ${report.friccion.insight} (${report.friccion.valor})`);
-  console.log(`>>> ESTADO ACTUAL: ${report.perceptionStatus.toUpperCase()}`);
-  console.log(`>>> CONCLUSIÓN: ${report.insight}`);
+  console.log(`PESO(FRICCIÓN) DE LA REALIDAD:  ${report.friccion.insight} (${report.friccion.valor})`); 
+  /* console.log(`>>> ESTADO ACTUAL: ${report.perceptionStatus.toUpperCase()}`);
+  console.log(`>>> CONCLUSIÓN: ${report.insight}`); */
   if (answers.user_note) {
     console.log(`NOTA CUALITATIVA: "${answers.user_note}"`);
   }
