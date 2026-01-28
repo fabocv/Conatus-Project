@@ -170,11 +170,7 @@ Se pone una meta de estabilidad: hoy me quiero mover o sentir hacia un estado. E
 
 Dado un cluster objetivo $\left(\mathbf{e}_{obj}\right)$:
 
-$$
-\Delta \mathbf{x}
-=
-\Lambda(\mathbf{e}_{obj} - \mathbf{x}_{ef})
-$$
+$$\Delta \mathbf{x}=\Lambda(\mathbf{e}_{obj} - \mathbf{x}_{ef})$$
 
 Este desplazamiento:
 - es pequeño
