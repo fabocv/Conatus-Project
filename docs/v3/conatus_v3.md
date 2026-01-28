@@ -263,7 +263,117 @@ Es un **instrumento cognitivo** para:
 
 ---
 
-## 11. Cierre conceptual
+## 11. Cuestionario y variables
+
+### Tabla de preguntas proxy y normalización de variables  (escala [0.1, 1])
+
+Escala normalizada: [0.1, 1] — no se permiten ceros estructurales
+
+Convención general:
+- Cada respuesta \( $P_i \in \{1,\dots,10\} $\)
+- Normalización directa: \( $P_i^{norm} = \frac{P_i}{10}$ \)
+- Normalización inversa: \( $1 - \frac{P_i}{10}$ \)
+- Para cada variable: promedio simple de sus preguntas
+- Restricción final: \( $x := \max(x, 0.1)$ \)
+
+---
+
+### 🔹 Dopamina (D) — Potencia de inicio y sostén del obrar
+
+| Pregunta | Texto | Escala |
+|--------|------|--------|
+| P1 | Siento impulso interno para iniciar acciones sin presión externa | Directa |
+| P2 | Me resulta atractivo comenzar tareas nuevas o relevantes | Directa |
+| P3 | Mantengo el interés una vez que empiezo algo | Directa |
+| P4 | Siento energía mental para actuar durante el día | Directa |
+| P5 | Me cuesta poco esfuerzo “ponerme en marcha” | Directa |
+| P6 | Percibo sentido o dirección en lo que hago | Directa |
+
+$$D = \frac{P_1 + P_2 + P_3 + P_4 + P_5 + P_6}{60}$$
+
+---
+
+### 🔹 GABA (G) — Regulación, freno y contención
+
+| Pregunta | Texto | Escala |
+|--------|------|--------|
+| P7 | Puedo frenar impulsos cuando lo decido | Directa |
+| P8 | Mantengo estabilidad frente a estímulos demandantes | Directa |
+| P9 | Puedo pausar antes de reaccionar | Directa |
+| P10 | Tolero bien la frustración | Directa |
+| P11 | Me resulta posible bajar revoluciones voluntariamente | Directa |
+| P12 | Siento control interno sobre mis respuestas | Directa |
+
+$$G = \frac{P_7 + P_8 + P_9 + P_{10} + P_{11} + P_{12}}{60}$$
+
+---
+
+### 🔹 Glutamato (Glu) — Ruido y sobreexcitación (escala inversa)
+
+| Pregunta | Texto | Escala |
+|--------|------|--------|
+| P13 | Mi mente se siente saturada o sobreestimulada | Inversa |
+| P14 | Tengo exceso de pensamientos simultáneos | Inversa |
+| P15 | Me cuesta desconectarme mentalmente | Inversa |
+| P16 | Me siento fácilmente sobrepasado por estímulos | Inversa |
+| P17 | Mi activación mental es difícil de regular | Inversa |
+| P18 | Me cuesta bajar el nivel de alerta | Inversa |
+
+$$Glu = 1 - \frac{P_{13} + P_{14} + P_{15} + P_{16} + P_{17} + P_{18}}{60}$$
+
+---
+
+### 🔹 Integración y coherencia (estabilidad funcional)
+
+| Pregunta | Texto | Escala |
+|--------|------|--------|
+| P19 | Mi energía y control suelen estar equilibrados | Directa |
+| P20 | Rara vez paso del bloqueo a la sobreexcitación | Directa |
+| P21 | Me siento funcional en el día a día | Directa |
+| P22 | Mi ritmo interno se siente coherente | Directa |
+| P23 | Puedo sostener esfuerzos sin colapsar | Directa |
+| P24 | Mi estado general me permite actuar con continuidad | Directa |
+
+### Variables estructurales (vector de estado)
+
+| Variable | Preguntas | Tipo de escala | Definición normalizada |
+|--------|-----------|---------------|------------------------|
+| **D** (Dopamina) | P1, P2, P3 | Directa | \( $D = \frac{P_1 + P_2 + P_3}{30}$ \) |
+| **G** (GABA) | P4, P5, P6 | Directa | \( $G = \frac{P_4 + P_5 + P_6}{30}$ \) |
+| **Glu** (Glutamato) | P7, P8, P9 | **Inversa** | \( $Glu = 1 - \frac{P_7 + P_8 + P_9}{30}$ \) |
+
+Vector efectivo:
+$$
+\mathbf{x} = \begin{bmatrix} D \\ G \\ 1 - Glu \end{bmatrix}
+$$
+
+---
+
+### Variables moduladoras (paisaje y dinámica)
+
+| Variable | Preguntas | Tipo de escala | Definición normalizada |
+|--------|-----------|---------------|------------------------|
+| **S** (Serotonina) | P25, P26 | Directa | \( $S = \frac{P_{25} + P_{26}}{20}$ \) |
+| **N** (Noradrenalina) | P27, P28 | **Inversa** | \( $N = 1 - \frac{P_{27} + P_{28}}{20}$ \) |
+| **M** (Melatonina) | P23, P24 | Directa | \( $M = \frac{P_{23} + P_{24}}{20}$ \) |
+| **O** (Oxitocina) | P21, P22 | Directa | \( $O = \frac{P_{21} + P_{22}}{20}$ \) |
+
+---
+
+### Restricción estructural (anti–colapso)
+
+Para todas las variables normalizadas:
+$$
+x := \max(x,\ \varepsilon), \quad \varepsilon = 0.1
+$$
+
+Esto garantiza:
+- continuidad del conatus
+- ausencia de colapsos por anulación
+- estabilidad numérica y fenomenológica
+
+
+## 13. Cierre conceptual
 
 > *La tranquilidad no es quietud,  
 > es la forma estable que adopta la potencia cuando se conoce a sí misma.*
