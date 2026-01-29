@@ -32,7 +32,19 @@ El sistema utiliza una ponderación asimétrica ($W$) para diferenciar el sínto
 El estado real del individuo, donde la Noradrenalina ($N$) actúa como un antagonista exponencial del control y un divisor de la claridad.
 
 $$
-\mathbf{x}_{ef} = \begin{bmatrix} D_{ef} \\ G_{ef} \\ \Psi_{ef} \end{bmatrix} = \begin{bmatrix} D \cdot (1 - 0.2N) \\ G \cdot S \cdot e^{-N} \\ (1 - Glu) \cdot \frac{O}{1+N} \end{bmatrix}
+\mathbf{x}_{ef} =
+\begin{bmatrix}
+D_{ef} \\
+G_{ef} \\ 
+\Psi_{ef}
+\end{bmatrix}
+=
+\mathbf{x}_{ef} =
+\begin{bmatrix}
+D \cdot (1 - 0.2N) \\
+G \cdot S \cdot e^{-N} \\
+(1 - Glu) \cdot \frac{O}{1+N}
+\end{bmatrix}
 $$
 
 ### 3.2 Blindaje y Fragilidad Estructural ($F$)
