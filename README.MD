@@ -153,7 +153,25 @@ Bloque D: Conexión e Integración
 
 Para este análisis comparativo, vamos a situar tres perfiles de personas bajo resultados de las reglas de la v3.2.
 
-### Comparativa de Perfiles: Conatus v3.2
+### Comparativa de Estados: Dante vs. Leandro vs. Josefina
+
+Utilizando el motor Conatus v3.2, comparamos tres modos de existencia bajo condiciones de estrés y recursos variables.
+
+### 1. Vectores de Estado Efectivo $(x_{ef}​)$
+
+$$\mathbf{x}_{ef} =
+\begin{bmatrix}
+D_{ef} \\
+G_{ef} \\ 
+\Psi_{ef}
+\end{bmatrix} =
+\begin{bmatrix}
+D \cdot (1 - 0.2N) \\
+G \cdot S \cdot e^{-N} \\
+(1 - Glu) \cdot \frac{O}{1+N}
+\end{bmatrix}$$
+
+### 2. Comparativa de Perfiles: Conatus v3.2
 
 | Variable / Sujeto | Josefina (Burnout) | Manuel (Zen Agotado) | Dante (Flujo/Firmeza)|
 |-------------|------------------|---------------------|-----------------|
@@ -196,7 +214,7 @@ La diferencia crítica entre los tres no es la Dopamina, sino el **Ratio de Inte
 - Dante vive en la *Libertad*: posee tanto la potencia física como la claridad mental para actuar conforme a su propia naturaleza. Su alegría es una "pasión activa" porque nace del aumento de su propia potencia.
 
 
-## Sentencia Final del Framework:
+## Conclusiones de testeo del Framework:
 
 Mientras Josefina necesita "reparación urgente" y Manuel necesita "mantenimiento", Dante está en posición de "generosidad". El único riesgo para Dante es el exceso de confianza: su potencia es tan alta que podría ignorar los sutiles avisos de fatiga de su Melatonina (6.6), creyéndose invulnerable.
 
