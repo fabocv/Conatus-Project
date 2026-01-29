@@ -36,8 +36,7 @@ $$\mathbf{x}_{ef} =
 D_{ef} \\
 G_{ef} \\ 
 \Psi_{ef}
-\end{bmatrix}=
-\mathbf{x}_{ef} =
+\end{bmatrix} =
 \begin{bmatrix}
 D \cdot (1 - 0.2N) \\
 G \cdot S \cdot e^{-N} \\
