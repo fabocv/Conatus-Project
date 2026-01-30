@@ -71,6 +71,7 @@ Aquí ocurre la alquimia del sistema. Convertimos los recursos brutos ($S_{int}$
 
 ### A. Vector de Deformación ($\mathbf{\Gamma}$)
 Los perturbadores no son escalares simples; son vectores que alteran la afinidad de receptores específicos.
+
 $$\mathbf{\Gamma}_j(X) = 1 + \sum_{i} \beta_{ij} \cdot \text{Dosis}(X_i) \cdot e^{-\lambda_i T_{exp}}$$
 
 > **Nota Spinozista:** Aquí cuantificamos la servidumbre humana. $\Gamma$ representa cómo las *causas externas* nos determinan a obrar de cierta manera, desviando nuestra naturaleza original ($S_{int}$).
@@ -94,7 +95,7 @@ x_{ef, \Psi}
 (1 - (Glu \cdot \Gamma_{Glu})) \cdot \frac{(O \cdot \Gamma_O)}{1+(N \cdot \Gamma_N)}
 \end{bmatrix}$$
 
-*Donde $\alpha \approx 0.15$ (Coeficiente de Impulsividad).*
+Donde $\alpha \approx 0.15$ *(Coeficiente de Impulsividad).*
 
 ---
 
@@ -116,7 +117,7 @@ $$k_{t+1} = k_t + \epsilon \cdot ACh \cdot (1 - F) \cdot \left(1 - \frac{k}{k_{m
 ### B. Expresión de la Fortaleza ($k_{ef}$)
 ¿Cuánto de tu fortaleza puedes usar hoy?
 $$k_{ef} = k \cdot e^{-\delta (C - C_0)^2}$$
-*El Cortisol fuera de rango ($C \neq C_0$) bloquea el acceso a la virtud propia.*
+> El Cortisol fuera de rango ($C \neq C_0$) bloquea el acceso a la virtud propia.
 
 ### C. Retorno de Inversión de Potencia (R.O.I.P.)
 Tasa de recarga para el ciclo siguiente.
@@ -131,8 +132,9 @@ $$\Delta \text{Recurso} = (\gamma_{base} \cdot \eta) \cdot T_i \cdot (1 - F)$$
     * **Interpretación:** La lucidez ($x_{ef, \Psi}$) es carga. El GABA es refrigeración. La estructura ($k \cdot S$) es el blindaje. Si el blindaje es alto, el término exponencial tiende a 0, anulando la fragilidad.
 
 * **Índice de Fatiga de Material ($\tau$):**
+
   $$\tau = \frac{\Gamma(X)}{k_{ef}}$$
-  > **Comentario Existencial:** Si $\tau > 2.0$, tu funcionamiento depende de químicos prestados, no de tu propia naturaleza. Eres "pasivo" ante el mundo.
+  > **Comentario Existencial:** Si $\tau > 2.0$, tu funcionamiento depende de químicos prestados, no de tu propia naturaleza.
 
 ---
 
@@ -140,6 +142,7 @@ $$\Delta \text{Recurso} = (\gamma_{base} \cdot \eta) \cdot T_i \cdot (1 - F)$$
 
 ### A. Radar de Trayectoria
 Proyección del estado $x_{ef}$ considerando la vida media de $\Gamma(X)$.
+
 $$x_{t+4} = x_{ef} \cdot \text{Decay}(\Gamma_X) - \Delta \text{Fatiga}(C, M)$$
 
 | Tendencia | Fenomenología | Causa Bioquímica |
