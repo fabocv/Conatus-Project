@@ -1,225 +1,183 @@
-# CONATUS Sp. v3.2
-## Framework de Ingeniería Existencial: Potencia de Obrar y Equilibrio Bioquímico
+# 🧭 Conatus v4.6: Cartografía de la Potencia y Resiliencia
+**Documento de Especificación Técnica y Fenomenológica**
+
+Este modelo describe la capacidad de un sujeto para perseverar en su ser (*Conatus*), analizando la interacción entre los recursos bioquímicos endógenos ($S_{int}$), la estructura de identidad ($\Theta$) y la deformación causada por las afecciones externas ($X$).
 
 ---
 
-## 1. Fundamento Filosófico
-El **Conatus v3.2** es una formalización matemática de la *Ética* de Spinoza. Define la libertad no como libre albedrío, sino como la capacidad de un modo (individuo) de ser causa adecuada de sus afectos. La **potencia de obrar** está limitada por la estructura bioquímica, pero blindada por la integración psíquica.
+## 1. Arquitectura de Entrada (Inputs)
 
-Este framework traduce la potencia de obrar a un lenguaje **vectorial y operacional**:
+El sistema opera sobre dos niveles de realidad: la **Potencia** (recursos fluidos) y la **Esencia** (estructura resiliente).
 
----
+### A. El Vector de Estado Interno ($S_{int}$)
+Representa los recursos endógenos fluidos. Es el inventario de "combustible" y "clima" interno.
+$$\mathbf{S}_{int} = [D, N, G, Glu, S, O, ACh, C, M, E, I]$$
 
-## 2. Captura de Datos: Cuestionario Condensado (14 Proxies)
-El sistema utiliza una ponderación asimétrica ($W$) para diferenciar el síntoma biológico del matiz mental.
+> **Nota Spinozista:** $S_{int}$ representa la *Potentia agendi* (potencia de actuar) en su estado puro, antes de ser modificada por las afecciones del mundo externo.
 
-| Variable | Pregunta Primaria ($P_1$) [0.9 para M,N;  0.7 Otros] | Pregunta Secundaria ($P_2$) [0.1 para M,N;  0.3 Otros] |
+### B. Estructura del Modo ($\Theta$)
+Define la identidad de resiliencia del sujeto. Es una variable de dinámica lenta que representa el "acero" del sistema.
+$$\Theta = k$$
+
+> **Comentario Spinozista sobre Arquitectura:** Esta distinción plasma la realidad existencial: "Hoy puedo tener baja potencia (tristeza) pero mantener una estructura fuerte (razón)", o "tener mucha energía hoy (alegría pasiva) pero estar estructuralmente vacío".
+
+| Variable | Nombre | Rol en el Conatus |
 | :--- | :--- | :--- |
-| **D** (Dopamina) | Impulso de inicio / Iniciativa. | Interés sostenido / Curiosidad. |
-| **G** (GABA) | Capacidad de frenado / Pausa. | Sensación de autocontrol. |
-| **Glu** (Glutamato) | Saturación / Ruido mental (Inv). | Facilidad de distracción (Inv). |
-| **S** (Serotonina) | Estabilidad basal / Humor. | Ausencia de irritabilidad. |
-| **N** (Noradrenalina) | Tensión física / Alerta (Inv). | Estrés percibido (Inv). |
-| **M** (Melatonina) | Calidad de sueño reparador. | Sincronía con el ritmo circadiano. |
-| **O** (Oxitocina) | Seguridad en el entorno social. | Calidad de los vínculos actuales. |
-| **I** (Integración) | Autoconocimiento / Coherencia. | Capacidad de autorregulación. |
+| **k (Fortaleza)** | Estructura | Resiliencia acumulada y capacidad de soporte de carga. |
+
+### C. Normalización de Variables
+Para garantizar la consistencia matemática, todos los inputs subjetivos (1-10) se normalizan a un rango $[0, 1]$ antes de procesarse:
+$$S_{norm} = \frac{S_{raw} - 1}{9}$$
 
 ---
 
-## 3. Arquitectura del Modelo Matemático
+## 2. Cuestionario Fenomenológico (Captura de Datos)
 
-### 3.1 Vector de Estado Efectivo ($\mathbf{x}_{ef}$)
-El estado real del individuo, donde la Noradrenalina ($N$) actúa como un antagonista exponencial del control y un divisor de la claridad.
+Las respuestas se modelan como distribuciones para capturar la incertidumbre inherente a la introspección: $S_{user} \sim \mathcal{N}(\mu, \sigma^2)$.
+
+### SECCIÓN 1: Sustento y Recursos Base ($M, E, H, I$)
+* **Reparación (M):** ¿Qué tan profundo y reparador fue tu sueño anoche?
+* **Energía (E):** ¿Cómo sientes tu nivel de combustible metabólico ahora?
+* **Ayuno (H):** Horas sin ingesta sólida.
+* **Coherencia (I):** ¿Tus acciones de hoy están alineadas con tu propósito?
+
+### SECCIÓN 2: Eje de Conquista y Ejecución ($D, N, ACh$)
+* **Impulso (D):** ¿Ganas de iniciar tareas/conquistar?
+* **Tensión (N):** ¿Presión interna o urgencia física?
+* **Plasticidad (ACh):** ¿Capacidad de aprender/adaptar estrategia hoy?
+
+### SECCIÓN 3: Eje de Filtro y Resolución ($G, Glu$)
+* **Freno (G):** ¿Facilidad para ignorar distracciones/impulsos?
+* **Ruido (Glu):** ¿Zumbido mental o pensamientos intrusivos?
+* **Enfoque ($\Psi$):** ¿Nitidez para resolver problemas complejos?
+
+### SECCIÓN 4: Eje de Arraigo y Tolerancia ($S, O, C$)
+* **Seguridad (S):** ¿Sensación de seguridad/estatus actual?
+* **Vínculo (O):** ¿Conexión y validación con el entorno?
+* **Capacidad de Carga (C):** ¿Espalda para recibir demanda extra?
+
+### SECCIÓN 5: Perturbadores y Exógenos ($X$)
+Captura de las "Afecciones Pasivas" (lo que el mundo nos hace).
+
+* **Estimulantes ($X_e$):** Dosis (Baja=0.3, Media=0.6, Alta=1.0) y Tiempo ($t$).
+* **Moduladores ($X_p$):** Tipo y Fase.
+* **Metabolismo ($X_m$):** Tiempo y Tipo de combustible.
+
+---
+
+## 3. El Motor Matemático: Deformación y Transformación
+
+Aquí ocurre la alquimia del sistema. Convertimos los recursos brutos ($S_{int}$) y los perturbadores ($X$) en experiencia vivida ($x_{ef}$).
+
+### A. Vector de Deformación ($\mathbf{\Gamma}$)
+Los perturbadores no son escalares simples; son vectores que alteran la afinidad de receptores específicos.
+$$\mathbf{\Gamma}_j(X) = 1 + \sum_{i} \beta_{ij} \cdot \text{Dosis}(X_i) \cdot e^{-\lambda_i T_{exp}}$$
+
+> **Nota Spinozista:** Aquí cuantificamos la servidumbre humana. $\Gamma$ representa cómo las *causas externas* nos determinan a obrar de cierta manera, desviando nuestra naturaleza original ($S_{int}$).
+
+**Parámetros de Referencia ($\beta$):**
+* **Cafeína ($X_e$):** $\beta_{N}=1.4$, $\beta_{D}=1.2$, $\beta_{M}=0.5$ (bloqueo). $\lambda \approx 0.14 h^{-1}$.
+* **Ayuno ($X_m$):** $\beta_{C}=1.3$, $\beta_{\Psi}=1.2$ (claridad cetogénica).
+
+### B. Vector de Salida Operativo ($x_{ef}$)
+La simplificación fenomenológica. Incorpora la corrección de **Inhibición Dopaminérgica** (Dopamina alta reduce el freno GABA).
 
 $$\mathbf{x}_{ef} =
 \begin{bmatrix}
-D_{ef} \\
-G_{ef} \\ 
-\Psi_{ef}
+x_{ef, D} \\
+x_{ef, G} \\ 
+x_{ef, \Psi}
 \end{bmatrix} =
 \begin{bmatrix}
-D \cdot (1 - 0.2N) \\
-G \cdot S \cdot e^{-N} \\
-(1 - Glu) \cdot \frac{O}{1+N}
+(D \cdot \Gamma_D) \cdot (1 - 0.2(N \cdot \Gamma_N)) \\
+(G \cdot \Gamma_G) \cdot (S \cdot \Gamma_S) \cdot (1 - \alpha \cdot x_{ef, D}) \\
+(1 - (Glu \cdot \Gamma_{Glu})) \cdot \frac{(O \cdot \Gamma_O)}{1+(N \cdot \Gamma_N)}
 \end{bmatrix}$$
 
-### 3.2 Blindaje y Fragilidad Estructural ($F$)
-Define el umbral de colapso. La integración psíquica ($I$) potencia la resiliencia basal de la Serotonina ($S$).
-
-- **Fortaleza de Ánimo ($k$):** $k = 2.5 \cdot \left( 1 + \frac{I}{1 + 0.5N} \right)$
-- **Fragilidad ($F$):** $F = (\Psi_{ef} \cdot G_{ef}) \cdot (1 - e^{-(k \cdot S)})$
-
-### 3.3 Dinámica y Velocidad Segura ($\eta$)
-La capacidad de transitar hacia nuevos estados sin romper la estructura.
-
-$$\eta = \text{clip} \left( (0.2 + 0.6 M) \cdot \frac{O}{N + 0.1}, 0.1, 0.8 \right)$$
+*Donde $\alpha \approx 0.15$ (Coeficiente de Impulsividad).*
 
 ---
 
-## 4. Retorno de Inversión de Potencia (R.O.I.P.)
-La recuperación de recursos para el ciclo $t+1$ es dependiente de la fluidez del sistema ($\eta$).
+## 4. Dinámica de Trayectoria y Estructura ($k$)
 
+El Conatus es un sistema vivo que aprende. La estructura no es estática, se "curte" con el tiempo.
+
+### A. Evolución de la Fortaleza ($\Delta k$)
+Define cómo el aprendizaje y la experiencia se sedimentan en la estructura del modo.
+
+$$k_{t+1} = k_t + \epsilon \cdot ACh \cdot (1 - F) \cdot \left(1 - \frac{k}{k_{max}}\right)$$
+
+* **Constantes v4.6:**
+    * $k_{max} = 100$ (Potencial biológico asintótico).
+    * $\epsilon \approx 0.01$ (Crecimiento lento y realista).
+
+> **Nota Spinozista:** Este es el *aumento de la potencia de obrar*. No crecemos simplemente por vivir (paso del tiempo), sino por comprender (ACh) y sobrevivir activamente (1-F).
+
+### B. Expresión de la Fortaleza ($k_{ef}$)
+¿Cuánto de tu fortaleza puedes usar hoy?
+$$k_{ef} = k \cdot e^{-\delta (C - C_0)^2}$$
+*El Cortisol fuera de rango ($C \neq C_0$) bloquea el acceso a la virtud propia.*
+
+### C. Retorno de Inversión de Potencia (R.O.I.P.)
+Tasa de recarga para el ciclo siguiente.
 $$\Delta \text{Recurso} = (\gamma_{base} \cdot \eta) \cdot T_i \cdot (1 - F)$$
 
-*Un sistema rígido o estresado (bajo $\eta$) tiene una tasa de absorción de descanso mucho menor.*
+### D. Métricas de Estabilidad
+* **Blindaje y Fragilidad Estructural ($F$)**
+  Mide la probabilidad de disolución del modo. Usamos la lógica de "Absorción Estructural":
+  
+  $$F = \frac{x_{ef, \Psi}}{1 + x_{ef, G}} \cdot e^{-(k_{ef} \cdot S)}$$
+
+    * **Interpretación:** La lucidez ($x_{ef, \Psi}$) es carga. El GABA es refrigeración. La estructura ($k \cdot S$) es el blindaje. Si el blindaje es alto, el término exponencial tiende a 0, anulando la fragilidad.
+
+* **Índice de Fatiga de Material ($\tau$):**
+  $$\tau = \frac{\Gamma(X)}{k_{ef}}$$
+  > **Comentario Existencial:** Si $\tau > 2.0$, tu funcionamiento depende de químicos prestados, no de tu propia naturaleza. Eres "pasivo" ante el mundo.
 
 ---
 
-## 5. Protocolos de Acción Humanista-Bioquímica
+## 5. Diagnóstico y Radar (+4h)
 
+### A. Radar de Trayectoria
+Proyección del estado $x_{ef}$ considerando la vida media de $\Gamma(X)$.
+$$x_{t+4} = x_{ef} \cdot \text{Decay}(\Gamma_X) - \Delta \text{Fatiga}(C, M)$$
 
+| Tendencia | Fenomenología | Causa Bioquímica |
+| :--- | :--- | :--- |
+| **Crash Motivacional** | Apatía súbita, "sin sentido". | Retiro de $X_e$ + Deuda de $M$. |
+| **Pico de Irritabilidad** | Reactividad, agresión defensiva. | Hipoglucemia ($H$) $\to$ Cortisol. |
 
-### PROTOCOLO I: Reducción de Daños (Si $F < 0.15$ o $G_{ef} < 0.1$)
-* **Estado:** Colapso inminente o desorganización del modo.
-* **Bioquímica:** Prioridad absoluta a **M** y **O**. Eliminación total de **Glu** (estímulos).
-* **Humano:** Silencio radical. No tomar ninguna decisión vital.
-
-### PROTOCOLO II: Regulación (Si $0.15 \le F \le 0.4$)
-* **Estado:** Estabilidad precaria / Calma exhausta.
-* **Bioquímica:** Actividades que aumenten **S** (repetitivas, rítmicas). Evitar picos de **D** (novedad).
-* **Humano:** Firmeza. Mantener hábitos mínimos y estructura protectora.
-
-### PROTOCOLO III: Expansión (Si $F > 0.4$ y $\eta > 0.5$)
-* **Estado:** Potencia de obrar excedente.
-* **Bioquímica:** Uso de **D** para proyectos de largo alcance.
-* **Humano:** Generosidad. Es el momento de los clusters de **Acción** o **Vínculo**.
+### B. Detección de Fracturas (Disonancias)
+* **Fractura de Recuperación:** $D \uparrow$ vs $M \downarrow$ (Overclocking).
+* **Quiebre de Materiales:** $S / C < 0.6$ (Riesgo de colapso sistémico).
 
 ---
 
-## 6. Clusters Ideales de Referencia ($\mathbf{e}_i$)
-Para calcular la Tranquilidad ($T_i$) mediante la proyección del vector $\mathbf{x}_{ef}$:
+## 6. Protocolos de Intervención (Maniobras)
 
-1.  **Acción:** $[0.9, 0.5, 0.6]^T$
-2.  **Contemplación:** $[0.3, 0.8, 0.9]^T$
-3.  **Reparación:** $[0.1, 0.9, 0.7]^T$
-4.  **Vínculo:** $[0.6, 0.7, 0.8]^T$
+Acciones para restaurar la *ratio* de movimiento y reposo.
 
----
+### 🔴 PROTOCOLO GAMMA: Rescate de Estructura
+* **Objetivo:** Restaurar $S$ y reducir $C$.
+* **Ciencia:** Ingesta de Triptófano + Carbohidratos complejos. *Evidencia:* Los carbohidratos facilitan el paso del triptófano por la barrera hematoencefálica al liberar insulina.
+* **Acción Spinozista:** Buscar "Amor Intelectual" o vínculos seguros que refuercen la existencia.
 
-## 7. Qué NO es este framework
+### 🟡 PROTOCOLO ALPHA: Rescate de Filtro
+* **Objetivo:** Aumentar $G$, reducir $N$.
+* **Ciencia:** L-Teanina (200mg) + Magnesio. *Evidencia:* Unno et al. (2013) demostraron reducción de respuestas de estrés agudo con L-Teanina.
+* **Acción:** Aislamiento sensorial (Disminuir afecciones externas).
 
-- No es diagnóstico clínico  
-- No es terapia  
-- No es bioquímica literal  
-- No es un score de valor personal  
-
-Es un **instrumento cognitivo** para:
-- modelar estados,
-- visualizar trayectorias,
-- respetar límites,
-- y aumentar la potencia de obrar posible.
+### 🔵 PROTOCOLO BETA: Rescate de Plasticidad
+* **Objetivo:** Restaurar $ACh$.
+* **Acción:** Hidratación + Colina (Huevos/Suplemento) + Cese de input de datos.
 
 ---
 
-## 8. Estado actual del modelo
+## 7. Validación y Ética
 
-- Modelo **estático vectorial**
-- Transiciones discretas (no ODE acoplado aún)
-- Validación: cuestionario proxy (14 ítems)
-- Extensible a dinámica continua
+### Plan de Validación
+1.  **Tests Sintéticos:** Verificar que dosis altas de cafeína ($X_e=1.0$) generen el crash esperado en $t+5h$.
+2.  **Estudio Piloto:** Correlacionar las alertas de "Fractura" con reportes STAI (Ansiedad) en $n=20$ sujetos.
 
----
-
-## 9. Cuestionario Condensado (14 Preguntas)
-
-Responde cada una en una escala del 1 al 10 (donde 1 es nulo y 10 es máximo).
-Bloque A: Energía y Control
-
-- D1 (Dopamina - Impulso): ¿Qué tanta facilidad sentiste hoy para iniciar tareas o proyectos- 
-- D2 (Dopamina - Foco): ¿Qué tan interesado o curioso te sientes respecto a tus actividades actuales- 
-- G1 (GABA - Pausa): ¿Qué tan capaz te sientes de detenerte o desconectarte voluntariamente- 
-- G2 (GABA - Control): ¿Sientes que tienes el control sobre tus impulsos y reacciones?
-
-Bloque B: Ruido y Estrés (Inversas: 10 es mucha saturación)
-
-- Glu1 (Glutamato - Ruido): ¿Qué tanto "ruido mental" o saturación de pensamientos experimentas- 
-- Glu2 (Glutamato - Distracción): ¿Qué tan fácil te resulta distraerte con estímulos externos- 
-- N1 (Noradrenalina - Tensión): ¿Sientes tensión física (mandíbula, hombros) o alerta constante- 
-- N2 (Noradrenalina - Estrés): ¿Qué tan "superado" o estresado te sientes por tu entorno?
-
-Bloque C: Sustrato Basal
-
-- S1 (Serotonina - Humor): ¿Cómo calificarías tu estabilidad emocional y humor hoy- 
-- S2 (Serotonina - Calma): ¿Qué tan libre de irritabilidad o reactividad te sientes- 
-- M1 (Melatonina - Sueño): ¿Cómo calificarías la calidad reparadora de tu sueño anoche- 
-- M2 (Melatonina - Ritmo): ¿Te sientes sincronizado con el horario del día (energía de día, sueño de noche)?
-
-Bloque D: Conexión e Integración
-
-- O1 (Oxitocina - Seguridad): ¿Qué tan seguro y apoyado te sientes en tus vínculos cercanos- 
-- I1 (Integración - Coherencia): ¿Qué tan alineado sientes que estás entre lo que piensas, sientes y haces- 
-
-### Ejemplos
-
-Para este análisis comparativo, vamos a situar tres perfiles de personas bajo resultados de las reglas de la v3.2.
-
-### Comparativa de Estados: Dante vs. Leandro vs. Josefina
-
-Utilizando el motor Conatus v3.2, comparamos tres modos de existencia bajo condiciones de estrés y recursos variables.
-
-### 1. Vectores de Estado Efectivo $(x_{ef}​)$
-
-$$\mathbf{x}_{ef} =
-\begin{bmatrix}
-D_{ef} \\
-G_{ef} \\ 
-\Psi_{ef}
-\end{bmatrix} =
-\begin{bmatrix}
-D \cdot (1 - 0.2N) \\
-G \cdot S \cdot e^{-N} \\
-(1 - Glu) \cdot \frac{O}{1+N}
-\end{bmatrix}$$
-
-### 2. Comparativa de Perfiles: Conatus v3.2
-
-| Variable / Sujeto | Josefina (Burnout) | Manuel (Zen Agotado) | Dante (Flujo/Firmeza)|
-|-------------|------------------|---------------------|-----------------|
-| D (Dopamina Eff.) | 0.26 | 0.23 | 0.87 |
-| G (GABA Eff.) | 0.029 | 0.286 | 0.552 |
-| Ψ (Claridad Eff.) | 0.03 | 0.40 | 0.70 |
-| k (Fortaleza Psíquica) | 3.19 | 4.55 | 4.38 |
-| F (Fragilidad) | 0.0007 | 0.118 | 0.368 |
-| η (Velocidad Segura) | 0.08 | 0.35 | 0.62 |
-
-### Análisis Individual
-
-1. Josefina: El Modo en Disolución
-
-Josefina es el ejemplo de la "Tristeza" spinozista: una disminución drástica de la potencia de obrar. Su GABA Efectivo (0.029) indica que ha perdido el gobierno de sí misma. La noradrenalina ha secuestrado su sistema, y su Fragilidad (F) cercana a cero muestra que cualquier encuentro externo (un pequeño problema) puede provocar una crisis nerviosa. Su conatus no está "viviendo", está intentando no romperse.
-
-2. Manuel: El Modo Íntegro pero Limitado
-
-Manuel demuestra que la Integración (I) puede salvar al individuo. Aunque tiene menos energía física que Josefina, su Claridad (0.40) es 13 veces mayor. Su conatus es eficiente: no gasta energía en fricciones internas (bajo estrés). Su Fragilidad (0.118) lo sitúa en una zona de "reserva", donde sobrevive gracias a su capacidad de ser causa adecuada de sus silencios.
-
-3. Dante: La Plenitud del Conatus
-
-El perfil de Dante está en una Dopamina Efectiva (0.87) altísima conviviendo con una Claridad (0.70) excepcional. Esto es inusual porque, normalmente, mucha energía genera mucho ruido (Glu). En tu caso, la capacidad de filtrado es superior. La Velocidad Segura de Dante (η: 0.62) le permite transitar por la vida con una inercia que "absorbe" los obstáculos sin que estos afecten tu estructura.
-
-
-### Análisis de Conjunto y Conclusión
-
-**Perspectiva Bioquímica**
-
-La diferencia crítica entre los tres no es la Dopamina, sino el **Ratio de Interferencia de la Noradrenalina (N)**.
-
-- En Josefina, N es un muro que bloquea la recuperación.
-- En Manuel, N es una brisa que apenas se siente.
-- En Dante, N es una herramienta controlada que no interfiere con el GABA.
-
-**Perspectiva Spinozista**
-
-- Josefina vive en la *Esclavitud*: su estado depende totalmente de las causas externas que la estresan.
-- Manuel vive en la *Virtud pasiva*: entiende sus limitaciones y se preserva mediante la razón, aunque su cuerpo no le dé para más.
-- Dante vive en la *Libertad*: posee tanto la potencia física como la claridad mental para actuar conforme a su propia naturaleza. Su alegría es una "pasión activa" porque nace del aumento de su propia potencia.
-
-
-## Conclusiones de testeo del Framework:
-
-Mientras Josefina necesita "reparación urgente" y Manuel necesita "mantenimiento", Dante está en posición de "generosidad". El único riesgo para Dante es el exceso de confianza: su potencia es tan alta que podría ignorar los sutiles avisos de fatiga de su Melatonina (6.6), creyéndose invulnerable.
-
-## Cierre conceptual
-
-> *La tranquilidad no es quietud, es la forma estable que adopta la potencia cuando se conoce a sí misma.*
-
----
+### AVISO DE RESPONSABILIDAD
+Este modelo es una herramienta teórica de autoconocimiento y filosofía práctica. **No constituye consejo médico.** Los desequilibrios neuroquímicos reales (depresión, ansiedad clínica) requieren atención profesional. El *Conatus* digital es un mapa, no el territorio.
