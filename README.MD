@@ -1,4 +1,4 @@
-# 🧭 Conatus v4.6: Cartografía de la Potencia y Resiliencia
+# Conatus v4.6: Cartografía de la Potencia y Resiliencia
 **Documento de Especificación Técnica y Fenomenológica**
 
 Este modelo describe la capacidad de un sujeto para perseverar en su ser (*Conatus*), analizando la interacción entre los recursos bioquímicos endógenos ($S_{int}$), la estructura de identidad ($\Theta$) y la deformación causada por las afecciones externas ($X$).
