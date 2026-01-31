@@ -22,6 +22,9 @@ $$\Theta = k$$
 
 > **Nota Spinozista:** $S_{int}$ es el *afecto* (lo que siento ahora), mientras que $k$ es la *esencia* actual (lo que soy capaz de sostener).
 
+> [!IMPORTANT]
+> NO ENTIENDO NADA!... traquilo compa, puedes ir a la [clase #1](./clases/v4/clase1.md) donde te explico con filosofía y mas relax todo esto.
+
 ### C. Normalización de Variables
 Para garantizar la consistencia matemática, todos los inputs subjetivos (1-10) se normalizan a un rango $[0, 1]$ antes de procesarse:
 $$S_{norm} = \frac{S_{raw} - 1}{9}$$
@@ -171,17 +174,19 @@ Incorpora el **Error de Predicción de Recompensa (RPE)** (*Montague, 2012*). La
 Computación secuencial para evitar dependencias circulares.
 
 1. **Impulso Efectivo:** 
-$$x_ef,D = (D + δ_RPE) * Γ_D * (1 - 0.2(N * Γ_N))$$
+$$x_ef,D = (D + δ_RPE) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
 
-2. **Filtro Efectivo (Inhibición):** 
-$$x_ef,G = (G * Γ_G) * (S * Γ_S) * (1 - α * x_ef,D)$$
+2. **Filtro Efectivo (Consumo de freno por impulso):** 
+$$x_ef,G = (G \cdot Γ_G) \cdot (S \cdot Γ_S) \cdot (1 - α \cdot x_ef,D)$$
 
 3. **Enfoque Efectivo (Lucidez):** 
-$$x_ef,Ψ = (1 - (Glu * Γ_Glu)) * (O / (1 + (N * Γ_N)))$$
+$$x_ef,Ψ = (1 - (Glu \cdot Γ_{Glu})) \cdot \left(\frac{O}{1 + (N \cdot Γ_N)}\right) \cdot (1 + \rho \cdot ACh)$$
+
+> Con $\rho ≈ 0.1$, Fenomenológicamente, la acetilcolina mejora suavemente la resolución local de la lucidez / cognición. ACh no solo está implicada en aprendizaje, sino que en la corteza facilita la detección de señales relevantes y el control atencional (Klinkenberg et al.)
 
 > **Factor RPE ($\delta_{RPE}$):** Si el resultado de una acción supera la expectativa, $\delta > 0$ (Ráfaga fásica). Si decepciona, $\delta < 0$ (Pausa dopaminérgica/Frustración).
 
-> **Nota Spinozista v4.8:** Esta secuencia refleja cómo el deseo (Cupiditas) es afectado primero por la expectativa (D+δRPE​), y cómo ese deseo resultante modula nuestra capacidad de moderación o freno (xef,G​). La razón (Ψ) es lo último que se estabiliza tras el torbellino de las pasiones iniciales.
+> **Nota Spinozista v4.7:** Esta secuencia refleja cómo el deseo (Cupiditas) es afectado primero por la expectativa (D+δRPE​), y cómo ese deseo resultante modula nuestra capacidad de moderación o freno (xef,G​). La razón (Ψ) es lo último que se estabiliza tras el torbellino de las pasiones iniciales.
 ---
 
 ## 4. Dinámica de Sistemas: Fortaleza y Fragilidad
@@ -212,6 +217,13 @@ $$F = \frac{x_{ef, \Psi}}{1 + x_{ef, G}} \cdot e^{-(k_{ef} \cdot S)}$$
 * **Índice de Fatiga de Material ($\tau$):**
 
   $$\tau = \frac{\Gamma(X)}{k_{ef}}$$
+
+| $\tau$  | Estado                |
+| ------- | --------------------- |
+| < 1.0   | Autonomía estructural |
+| 1.0–2.0 | Asistencia química    |
+| > 2.0   | Servidumbre pasional  |
+
   > **Comentario Existencial:** Si $\tau > 2.0$, tu funcionamiento depende de químicos prestados, no de tu propia naturaleza.
 ---
 
@@ -280,6 +292,10 @@ Esta versión del modelo se construye sobre tres pilares académicos:
 3.  **Psicometría (Validez de Constructo):**
     * *Fuente:* Furr, R. M., & Bacharach, V. R. *Psychometrics: An Introduction*.
     * *Aplicación:* Transición de ítems únicos a **Índices Compuestos** (Clústeres) en el cuestionario de entrada. Esto aumenta la fiabilidad (Alpha de Cronbach esperada) y reduce el ruido de la varianza subjetiva diaria.
+
+4.  **Acetilcolina y Atención, investigación sobre el comportamiento cerebral**
+    * *Fuente:* Klinkenberg, I., Sambeth, A., & Blokland, A. (2011). Acetylcholine and attention. Behavioural brain research, 221(2), 430–442. https://doi.org/10.1016/j.bbr.2010.11.033
+    * *Aplicación:* con más ACh disponible, el sistema es mejor para seleccionar estímulos relevantes sobre ruido, lo que es equivalente a mejor resolución de lucidez en tareas cognitivas complejas.
 
 ---
 
