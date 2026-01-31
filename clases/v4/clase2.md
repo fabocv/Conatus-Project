@@ -61,7 +61,7 @@ Porque este valor ($Γ$) es el que entra en las ecuaciones de Impulso, Filtro y 
 
 Es lo primero que calculamos porque es el "motor".
 
-$$x_{ef,D} = (D + δ_RPE) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
+$$x_{ef,D} = (D + δ_{RPE}) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
 
 - La lógica: Sumamos tus ganas base ($D$) + el factor de sorpresa ($δ_{RPE}$​).
 - **¿Qué es el $δ_{RPE}$​?** Es la diferencia entre lo que esperabas y lo que obtuviste.
@@ -80,7 +80,7 @@ $$x_{ef,G} = (G \cdot Γ_G) \cdot (S \cdot Γ_S) \cdot (1 - α \cdot x_{ef,D})$$
 
 ### Paso 3: La Lucidez ($x_{ef,Ψ}$​)
 
-Es el resultado dependiente de que ela rumiación mental ($Glu$) y la Tensión ($N$) estén bajo control. Dicho resultado es perturbado por sustancias que impactan en la occitocina y la tensión basal, como también es modulado levemente por un factor de acetilcolina (que brinda lucidez y control atencional (Klinkenberg et al.))
+Es el resultado dependiente de que la rumiación mental ($Glu$) y la Tensión ($N$) estén bajo control. Dicho resultado es perturbado por sustancias que impactan en la oxitocina y la tensión basal, como también es modulado levemente por un factor de acetilcolina (que brinda lucidez y control atencional (Klinkenberg et al.))
 
 $$x_{ef,Ψ} = (1 - (Glu \cdot Γ_{Glu})) \cdot \left(\frac{O}{1 + (N \cdot Γ_N)}\right) \cdot (1 + \rho \cdot ACh)$$
 
@@ -120,28 +120,30 @@ Primero, recolectamos los datos del cuestionario (escala 1-10) y los normalizamo
 
 Calculamos el impacto de la cafeína usando el decaimiento exponencial (λ=0.14 para 5h de vida media).
 
-$$ΓN​=1+(1.4⋅1.0⋅e−0.14⋅1)≈2.21$$
+$$Γ_N​=1+(1.4⋅1.0⋅e−0.14⋅1)≈2.21$$
 
-$$ΓD​=1+(1.2⋅1.0⋅e−0.14⋅1)≈2.04$$
+$$Γ_D​=1+(1.2⋅1.0⋅e−0.14⋅1)≈2.04$$
 
-> **Resultado**: La cafeína está multiplicando su tensión (N) por 2.21 y su impulso (D) por 2.04.
+> **Resultado**: La cafeína está multiplicando su tensión ($N$) por 2.21 y su impulso ($D$) por 2.04.
 
 ### 3. Cascada de Salida Operativa ($x_{ef}$​)
 
 ### Paso A: El Impulso ($x_{ef,D}$​)
 
 El Sujeto A esperaba que el café lo motivara mucho ($D_{exp}​=9$), pero se siente inquieto ($D_{real}​=5$). $δ_{RPE}​=5−9=−4$ (Decepción dopaminérgica).
+
 $$x_{ef,D}​=max(0,(D_{norm}​+δ_{RPE_norm​})⋅Γ_D​⋅(1−0.2(N_{norm​}⋅Γ_N​)))$$
 
-Aplicando valores normalizados: $x_{ef,D}​=max(0,(0.44−0.44)⋅…)=0.0.$
+Aplicando valores normalizados: $x_{ef,D}​=max(0,(0.44−0.44)⋅…)=0$
 
-    Interpretación: La decepción ($δ_{RPE}$​) anuló por completo el efecto motor del café. El sujeto tiene energía física, pero cero ganas de hacer cosas.
+> **Interpretación**: La decepción ($δ_{RPE}$​) anuló por completo el efecto motor del café. El sujeto tiene energía física, pero cero ganas de hacer cosas.
 
 ### Paso B: El Filtro ($x_{ef},G$​)
 
 $$x_{ef},G​=(G⋅Γ_G​)⋅(S⋅Γ_S​)⋅(1−α⋅x_{ef,D}​)$$
 
 Como $x_{ef},D$​ es 0, el filtro no se ve saboteado por el impulso, pero está débil por la baja seguridad ($S=0.33$): 
+
 $$x_{ef,G}​=(0.44⋅1)⋅(0.33⋅1)⋅(1−0)≈0.14$$
 
 > **Interpretación**: Tiene un filtro bajísimo. No puede frenar sus pensamientos negativos.
@@ -160,9 +162,9 @@ $$k_{ef} = k \cdot e^{-\delta (C - C_0)^2}$$
 
 Cálculo:
 
-- **Diferencia de estrés $(C-C_0)$:** (0.8−0.55)=0.25.
-- **Cuadrado de la diferencia:** 0.252=0.0625.
-- **Exponente**: −2.5⋅0.0625=−0.15625.
+- **Diferencia de estrés $(C-C_0)$:** $(0.8−0.55)=0.25$
+- **Cuadrado de la diferencia:** $0.25^2=0.0625$
+- **Argumento del Exponente**: $−2.5⋅0.0625=−0.15625$
 - **Resultado**: $k_{ef}​=10⋅e^{−0.15625}≈8.55$
 - **Interpretación**: Aunque el sujeto "vale" 10 en fortaleza, su nivel de estrés actual solo le permite usar el 85.5% de su capacidad. Ha perdido casi un 15% de su resiliencia solo por la tensión biológica.
 
@@ -173,16 +175,16 @@ $$ F=\frac{x_{ef,Ψ}}{1+x_{ef,G}​}​​ \cdot e^{−(k_{ef}​⋅S)}$$
 
 $$F=(0.07/1.14)⋅e^{−(8.55⋅0.33)}=0.061⋅0.059≈0.0036$$
 
-Significado: El valor de F es numéricamente bajo, pero esto es una trampa del sistema. El sujeto no está en colapso activo (pánico), sino en un estado de estancamiento o parálisis por análisis. Al tener una Lucidez ($Ψ$) tan baja, el sistema no tiene "presión" suficiente para estallar, pero tampoco tiene potencia para obrar. Si un estímulo externo subiera la demanda de lucidez repentinamente, el sistema colapsaría de inmediato porque el blindaje estructural ($k_{ef​}⋅S$) está muy debilitado.
+> **Significado**: El valor de F es numéricamente bajo, pero esto es una trampa del sistema. El sujeto no está en colapso activo (pánico), sino en un **estado de estancamiento o parálisis por análisis**. Al tener una Lucidez ($Ψ$) tan baja, el sistema no tiene "presión" suficiente para estallar, pero tampoco tiene potencia para obrar. Si un estímulo externo subiera la demanda de lucidez repentinamente, el sistema colapsaría de inmediato porque el blindaje estructural ($k_{ef​}⋅S$) está muy debilitado.
 
 ### Diagnóstico del Sistema:
 
-> - **Fractura de Recuperación**: **Activa**. Existe una disonancia crítica porque el Impulso ($x_{ef},D$​) es nulo (0.0) mientras que la Reparación ($M$) es bajísima (0.22 normalizado). El sistema está intentando "pedir" energía que no tiene cómo procesar, lo que genera un desgaste sin avance.
+> - **Fractura de Recuperación**: **Activa**. Existe una disonancia crítica porque el Impulso ($x_{ef,D}$​) es nulo (0.0) mientras que la Reparación ($M$) es bajísima (0.22 normalizado). El sistema está intentando "pedir" energía que no tiene cómo procesar, lo que genera un desgaste sin avance.
 
 > - **Índice $τ$:** $τ = Γ/k_{ef}​≈2.21/8.55≈0.25$
 >   - **Interpretación**: Aunque el valor está por debajo de 1.0 (Autonomía), la calidad de esa autonomía es pobre. El sujeto no es dependiente químico de la sustancia para existir, pero ha usado la cafeína para "inflar" una tensión ($N$) que su estructura ($k_{ef}$​) no puede canalizar hacia la lucidez.
 
-> - **Estado General:** **Servidumbre Pasional**. El sujeto es víctima de sus afecciones (mal sueño + decepción por δRPE​ + exceso de tensión por café). Su Conatus está operando al mínimo, simplemente sobreviviendo al ruido interno.
+> - **Estado General:** **Servidumbre Pasional**. El sujeto es víctima de sus afecciones (mal sueño + decepción por $δ_{RPE}$​ + exceso de tensión por café). Su Conatus está operando al mínimo, simplemente **sobreviviendo al ruido interno.**
 
 ## Tarea Práctica para el alumno:
 
