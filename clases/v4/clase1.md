@@ -175,3 +175,7 @@ Mensaje final:
 
 > No estamos reduciendo al ser humano a números.  
 > Estamos **ordenando lo suficiente** como para comprender sin juzgar.
+
+---
+
+## [Ir a la clase 2: El Algoritmo de la Potencia](clase2.md)

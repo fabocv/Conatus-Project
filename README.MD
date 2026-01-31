@@ -123,7 +123,7 @@ Siguiendo los principios de *Furr & Bacharach*, no confiamos en ítems únicos. 
   
   - Cálculo de $Γ_j$​: Se computa el impacto de cada sustancia externa sobre cada neurotransmisor base (N,D,G,Ψ,…) usando el decaimiento exponencial.
   - Cálculo de $x_{ef},D$​ (Impulso): Es la primera variable operativa. Depende de la Tensión ya deformada (N⋅ΓN​).
-  - Cálculo de $x_{ef},G$​ (Filtro): Depende de la Dopamina ya calculada ($x_{ef},D$D​) para aplicar el factor de impulsividad $α$.
+  - Cálculo de $x_{ef},G$​ (Filtro): Depende de la Dopamina ya calculada ($x_{ef},D$​) para aplicar el factor de impulsividad $α$.
   - Cálculo de $x_{ef},Ψ$​ (Enfoque): Utiliza los valores finales de ruido y tensión.
 
 ### 2. Formalización de la Dopamina Efectiva (xef,D​)
@@ -174,13 +174,13 @@ Incorpora el **Error de Predicción de Recompensa (RPE)** (*Montague, 2012*). La
 Computación secuencial para evitar dependencias circulares.
 
 1. **Impulso Efectivo:** 
-$$x_ef,D = (D + δ_RPE) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
+$$x_{ef,D} = (D + δ_RPE) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
 
 2. **Filtro Efectivo (Consumo de freno por impulso):** 
-$$x_ef,G = (G \cdot Γ_G) \cdot (S \cdot Γ_S) \cdot (1 - α \cdot x_ef,D)$$
+$$x_{ef,G} = (G \cdot Γ_G) \cdot (S \cdot Γ_S) \cdot (1 - α \cdot x_{ef,D})$$
 
 3. **Enfoque Efectivo (Lucidez):** 
-$$x_ef,Ψ = (1 - (Glu \cdot Γ_{Glu})) \cdot \left(\frac{O}{1 + (N \cdot Γ_N)}\right) \cdot (1 + \rho \cdot ACh)$$
+$$x_{ef,Ψ} = (1 - (Glu \cdot Γ_{Glu})) \cdot \left(\frac{O}{1 + (N \cdot Γ_N)}\right) \cdot (1 + \rho \cdot ACh)$$
 
 > Con $\rho ≈ 0.1$, Fenomenológicamente, la acetilcolina mejora suavemente la resolución local de la lucidez / cognición. ACh no solo está implicada en aprendizaje, sino que en la corteza facilita la detección de señales relevantes y el control atencional (Klinkenberg et al.)
 

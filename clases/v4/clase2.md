@@ -1,108 +1,193 @@
-# CLASE 2: Trayectorias del Conatus
-Dinámica, atractores y el devenir del sistema
+# CLASE 2: El Algoritmo de la Potencia
+¿Cómo calcula el cerebro nuestro estado de ánimo?
 
-## 0. Objetivo de la clase
+> [!IMPORTANT]
+> Afírmate que esta clase es el corazón power de todo el modelo.
 
-Al finalizar esta sesión, el estudiante será capaz de:
+## 1. El Cuestionario: Nuestra puerta de entrada
 
-- Superar el estatismo: Entender que la salud o la potencia no son "fotos", sino "películas" (trayectorias).
-- Mapear el comportamiento: Leer las crisis y los éxitos como movimientos en un espacio de estados.
-- Redefinir la Libertad: Comprender la libertad spinozista como estabilidad estructural y no como un deseo arbitrario.
+Todo sistema necesita datos. En el modelo Conatus 4.7, todo nace en el Cuestionario. A diferencia de un test psicológico común, aquí dividimos el flujo en dos ramas que luego se fusionan para darte un diagnóstico real:
 
-## 1. Del "Estado" al "Movimiento"
-### 1.1 El error del snapshot psicológico (la sacada de foto psicológica temporal)
+- Registro de sustancias ($X$): Mapea qué sustancias externas has consumido (café, alcohol, etc.).
+- $S_{int}$: Registra cómo te sientes internamente (energía, sueño, foco).
 
-Medir solo el ánimo, la energía o el estrés en un punto en el tiempo es insuficiente. Dos personas pueden reportar un "estrés nivel 8", pero:
+## 2. El Mapa del Flujo Computacional
 
-- Sujeto A: Está saliendo de una crisis (trayectoria de recuperación).
-- Sujeto B: Está entrando en un colapso (trayectoria de caída).
-- **Principio de Conatus**: No importa dónde estás, sino hacia dónde te proyecta tu estructura. Spinoza diría que la libertad no es la afección actual, sino el orden y conexión de esas afecciones.
+El bienestar no ocurre todo a la vez. Sigue un orden computacional específico porque cada valor depende del anterior para ser calculado con precisión.
 
-### 1.2 El lenguaje de sistemas
+<img src="../../docs/v4/diagrama4_7.png"  width="350" alt="diagrama de flujo computacional v4.7" />
 
-Para modelar el devenir humano, usamos tres conceptos clave:
+## 3. Post registro: El Vector de Deformación (Γ): ¿Cómo nos "hackean" las sustancias?
 
-- **Estado ($x_t$​)**: Tu ubicación actual en el mapa.
-- **Trayectoria**: El camino que recorres en el tiempo.
-- **Atractor**: Un "agujero negro" emocional o conductual; una región donde el sistema tiende a quedar atrapado (ej. la rumiación o el flow).
+En el Conatus v4.7, las sustancias no solo "están" ahí; tienen una fuerza ($β$) y un tiempo de vida ($λ$). Para saber cuánto te afecta una sustancia en el momento exacto del cuestionario, usamos el Cálculo de Perturbación.
 
-## 2. El Espacio de Estados del Conatus Operativo
+### A. Los tres ingredientes de la mezcla
 
-Retomamos el *Vector Operativo* de la [Clase 1](clase1.md):
+Para cada sustancia que registras, el modelo mira tres datos:
 
-$$
-\mathbf{x}_{ef} =
-\begin{bmatrix}
-D_{ef} \\
-G_{ef} \\
-\Psi_{ef}
-\end{bmatrix}$$
+- **Magnitud (Dosis):** ¿Fue un poquito (0.3) o una dosis de saturación (1.0)?
+- **Afinidad ($β$)**: Qué tan fuerte "pega" esa sustancia en un neurotransmisor específico (ej: la cafeína tiene un $β$ de 1.4 en la Tensión).
+- **Cronometría ($T_{exp}$​):** Cuántas horas han pasado desde que la consumiste.- 
+B. La fórmula desmenuzada (Sin miedo)
 
-Este vector genera un espacio tridimensional donde cada eje representa una dimensión de nuestra existencia operativa:
+La perturbación total para un neurotransmisor (como la Dopamina) se ve así:
 
-- Eje X ($D_{ef}$​): Impulso y potencia. ¿Qué tanta "gasolina" hay para actuar?
-- Eje Y ($G_{ef}$​): Control y filtro. ¿Qué tan capaz soy de frenar el ruido?
-- Eje Z ($Ψ_{ef}$​): Claridad y resolución. ¿Qué tan nítida es mi percepción?
+$$Γ_j​=1+(Dosis⋅β⋅e^{−λ⋅T_{exp}}​)$$
 
-## 3. Tiempo Discreto: La Evolución del Ser
+Traducción humana:
 
-El ser humano no cambia de forma continua, sino en ciclos (circadianos, hormonales, hábitos). Por eso usamos una ecuación de evolución discretizada:
+- El "1" es tu estado natural (100%).
+- El resto es el "extra" que aporta la sustancia.
+- $e^{−λ⋅T_{exp}}$​ es el factor de desvanecimiento. Si ha pasado mucho tiempo ($T_{exp}$​ alto), el "extra" se vuelve casi cero y vuelves a tu estado natural (1).
 
-$$x_t+1​=f(x_t​,Γ(X),k_t​)$$
+### Ejemplo Real: El "Café de hace 5 horas"
 
-Traducción: Tu estado de mañana (xt+1​) depende de:
+Imagina que te tomaste un café fuerte (Dosis 1.0) hace 5 horas ($T_{exp}=5$). La vida media de la cafeína es de 5 horas ($λ=0.14$).
 
-- Tu estado hoy ($x_t$​).
-- Las perturbaciones externas o sustancias ($Γ(X)$).
-- Tu fortaleza acumulada o habitus ($k_t$​).
+- Al inicio ($T=0$): Tu Tensión ($N$) se multiplicó por $2.4$. Te sentías eléctrico.
+- Ahora ($T=5$): Como pasó una vida media, el efecto se redujo a la mitad. Tu multiplicador ahora es solo $1.7$.
 
-## 4. Trayectorias Canónicas (Patrones de Vida)
+### ¿Por qué es importante esto para el flujo?
 
-No clasificamos personas, clasificamos dinámicas. Aquí los escenarios típicos:
+Porque este valor ($Γ$) es el que entra en las ecuaciones de Impulso, Filtro y Lucidez que veremos ahora.
 
-### 4.1 Trayectoria de FLOW (Potencia Integrada)
+- Si el $Γ$ de la cafeína sigue alto, la Tensión ($N⋅Γ_N$​) será alta.
+- Si esa tensión es alta, la Lucidez ($Ψ$) bajará por puro ruido sistémico, aunque creas que el café te está "ayudando" a concentrarte.
 
-- **Condiciones**: $G_{ef}$​ y $Ψ_{ef}$​ altos; Cortisol (C) en rango óptimo.
-- **Dinámica**: La fragilidad ($F$) es baja y el aprendizaje ($Δk$) es máximo.
-- **Fenomenología**: Esfuerzo sin fricción. Spinoza lo llamaría "aumento de la potencia de obrar por ideas adecuadas".
 
-### 4.2 Trayectoria de BURNOUT (Potencia Alquilada)
+## 4. Las Fórmulas Desmenuzadas: El orden de los factores
 
-- **Condiciones**: Def​ alto pero sostenido solo por perturbadores externos ($Γ$); Cortisol crónicamente elevado.
-- **Dinámica**: El sistema "alquila" energía que no tiene. La estructura ($k$) se degrada.
-- **Fenomenología**: Producción sin integración. "Hago mucho, pero me siento vacío".
+### Paso 1: El Impulso y la Sorpresa ($x_{ef,D}$​)
 
-### 4.3 Trayectoria de ANSIEDAD FUNCIONAL
+Es lo primero que calculamos porque es el "motor".
 
-- **Condiciones**: Claridad ($Ψ_{ef}​$) alta, pero Seguridad ($S$) y Filtro ($G$) bajos.
-- **Dinámica**: Fragilidad ($F$) alta. El sistema detecta todo pero no puede procesar nada.
-- **Fenomenología**: "Pienso demasiado, actúo poco". La lucidez se vuelve una carga.
+$$x_{ef,D} = (D + δ_RPE) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
 
-### 4.4 Trayectoria de RECUPERACIÓN (El "Elogio del Ocio")
+- La lógica: Sumamos tus ganas base ($D$) + el factor de sorpresa ($δ_{RPE}$​).
+- **¿Qué es el $δ_{RPE}$​?** Es la diferencia entre lo que esperabas y lo que obtuviste.
+  - Si el resultado es mejor de lo esperado ($δ>0$), tu potencia sube.
+  - Si te decepciona ($δ<0$), sufres un "Dopamine Crash" que frena el sistema.
+- El bloqueo: Si tienes mucha Tensión ($N$), ese motor se frena, sin importar cuántas ganas tengas.
 
-- **Condiciones**: Descenso de Def​ (impulso) y aumento de M (metabolismo/descanso).
-- **Dinámica**: Aunque la productividad es baja, $Δk>0$. El sistema está "reparando" la estructura.
-- **Mensaje Clave**: No toda baja de potencia es una regresión; a veces es una inversión estructural.
+### Paso 2: El Filtro ($x_{ef,G}$​)
 
-## 5. Atractores y Libertad Spinozista
+Depende directamente del Impulso calculado justo antes.
 
-Un Atractor es una trampa dinámica. El burnout crónico es un atractor: aunque intentes salir, las condiciones del sistema te succionan de vuelta.
+$$x_{ef,G} = (G \cdot Γ_G) \cdot (S \cdot Γ_S) \cdot (1 - α \cdot x_{ef,D})$$
 
-**¿Qué es entonces la Libertad?** En este modelo, la libertad no es "hacer lo que uno quiere". La libertad es Ingeniería de Sistemas:
+- La lógica: Representa tu capacidad de autocontrol y calma (G).
+- La dependencia: Si el impulso (xef,D​) es demasiado alto, "quema" el filtro. Por eso, bajo mucha tentación o entusiasmo, es casi imposible frenarse.
 
-1. Diseñar un sistema cuyo atractor sea la Estabilidad Integrada.
-2. Lograr que el sistema regrese solo al equilibrio tras una perturbación (resiliencia).
-3. Reducir la dependencia de sustancias o causas externas ($Γ$).
+### Paso 3: La Lucidez ($x_{ef,Ψ}$​)
 
-> **Conclusión**: Eres libre cuando tu trayectoria depende más de tu estructura (k) que de los accidentes del entorno.
+Es el resultado dependiente de que ela rumiación mental ($Glu$) y la Tensión ($N$) estén bajo control. Dicho resultado es perturbado por sustancias que impactan en la occitocina y la tensión basal, como también es modulado levemente por un factor de acetilcolina (que brinda lucidez y control atencional (Klinkenberg et al.))
 
-## 6. Cierre: El Sujeto Inteligible
+$$x_{ef,Ψ} = (1 - (Glu \cdot Γ_{Glu})) \cdot \left(\frac{O}{1 + (N \cdot Γ_N)}\right) \cdot (1 + \rho \cdot ACh)$$
 
-Este enfoque convierte al sujeto en algo inteligible:
 
-- La Psicología nos da la experiencia (el "cómo se siente").
-- La Bioquímica nos da las restricciones (el "con qué cuenta").
-- La Matemática nos da el mapa (el "hacia dónde va").
+### Paso 4: Fortaleza Efectiva ($k_{ef}$)
 
----
-## [Ir a la clase 3](./clase3.md)
+
+Antes de ver qué tan frágil es el sujeto, calculamos cuánta de su virtud/fuerza puede usar realmente. El Cortisol alto actúa como un "ruido" que bloquea el acceso a la capacidad estructural.
+
+$$k_{ef} = k \cdot e^{-\delta (C - C_0)^2}$$
+
+> El Cortisol fuera de rango ($C \neq C_0$) bloquea el acceso a la virtud propia.
+
+## 4. El cálculo de la Fragilidad (F)
+
+Una vez que el flujo recorre todos estos pasos, el sistema calcula F. Si la carga de lucidez es mucha y tus filtros son pocos, el sistema entra en riesgo de colapso.
+
+$$F = \frac{x_{ef, \Psi}}{1 + x_{ef, G}} \cdot e^{-(k_{ef} \cdot S)}$$
+
+  **Nota Spinozista v4.7**: Primero aparece el deseo (Cupiditas) afectado por la expectativa, luego intentamos moderarlo, y solo al final, si el torbellino se calma, emerge la Razón (Ψ).
+
+## 5. Ejemplo práctico!
+
+Supongamos que el Sujeto A tiene este perfil de $S_{int}$
+
+### 1. Entradas (Inputs) y Normalización
+
+Primero, recolectamos los datos del cuestionario (escala 1-10) y los normalizamos al rango [0,1].
+
+- Sustento Basal: M=3 (Mal sueño), E=4, I=6.
+- Motor: D=5, N=8 (Mucha tensión), ACh=5.
+- Filtro: G=5, Glu=7 (Rumiación alta), Ψbase​=5.
+- Arraigo: S=4 (Inseguridad), O=6, C=4.
+- Sustancia (X): Cafeína (Dosis Alta = 1.0). Ingerida hace 1 hora (Texp​=1).
+
+### 2. Rama Izquierda: Deformación por Sustancia ($Γ$)
+
+Calculamos el impacto de la cafeína usando el decaimiento exponencial (λ=0.14 para 5h de vida media).
+
+$$ΓN​=1+(1.4⋅1.0⋅e−0.14⋅1)≈2.21$$
+
+$$ΓD​=1+(1.2⋅1.0⋅e−0.14⋅1)≈2.04$$
+
+> **Resultado**: La cafeína está multiplicando su tensión (N) por 2.21 y su impulso (D) por 2.04.
+
+### 3. Cascada de Salida Operativa ($x_{ef}$​)
+
+### Paso A: El Impulso ($x_{ef,D}$​)
+
+El Sujeto A esperaba que el café lo motivara mucho ($D_{exp}​=9$), pero se siente inquieto ($D_{real}​=5$). $δ_{RPE}​=5−9=−4$ (Decepción dopaminérgica).
+$$x_{ef,D}​=max(0,(D_{norm}​+δ_{RPE_norm​})⋅Γ_D​⋅(1−0.2(N_{norm​}⋅Γ_N​)))$$
+
+Aplicando valores normalizados: $x_{ef,D}​=max(0,(0.44−0.44)⋅…)=0.0.$
+
+    Interpretación: La decepción ($δ_{RPE}$​) anuló por completo el efecto motor del café. El sujeto tiene energía física, pero cero ganas de hacer cosas.
+
+### Paso B: El Filtro ($x_{ef},G$​)
+
+$$x_{ef},G​=(G⋅Γ_G​)⋅(S⋅Γ_S​)⋅(1−α⋅x_{ef,D}​)$$
+
+Como $x_{ef},D$​ es 0, el filtro no se ve saboteado por el impulso, pero está débil por la baja seguridad ($S=0.33$): 
+$$x_{ef,G}​=(0.44⋅1)⋅(0.33⋅1)⋅(1−0)≈0.14$$
+
+> **Interpretación**: Tiene un filtro bajísimo. No puede frenar sus pensamientos negativos.
+
+### Paso C: La Lucidez ($x_{ef,Ψ}$​)
+
+$$x_{ef,Ψ}​=(1−(Glu⋅Γ_{Glu}​))⋅(1+(N⋅Γ_N​)O​)⋅(1+ρ⋅ACh)$$
+
+$$x_{ef,Ψ​}=(1−0.66)⋅(0.55/(1+0.77⋅2.21))⋅1.05≈0.07$$
+
+> **Interpretación**: Lucidez casi inexistente. El ruido mental ($Glu$) y la tensión disparada por el café ($N$) "nublaron" su visión.
+
+### Paso D: fortaleza
+
+$$k_{ef} = k \cdot e^{-\delta (C - C_0)^2}$$
+
+Cálculo:
+
+- **Diferencia de estrés $(C-C_0)$:** (0.8−0.55)=0.25.
+- **Cuadrado de la diferencia:** 0.252=0.0625.
+- **Exponente**: −2.5⋅0.0625=−0.15625.
+- **Resultado**: $k_{ef}​=10⋅e^{−0.15625}≈8.55$
+- **Interpretación**: Aunque el sujeto "vale" 10 en fortaleza, su nivel de estrés actual solo le permite usar el 85.5% de su capacidad. Ha perdido casi un 15% de su resiliencia solo por la tensión biológica.
+
+### 4. Resultado Final: Fragilidad (F)
+
+
+$$ F=\frac{x_{ef,Ψ}}{1+x_{ef,G}​}​​ \cdot e^{−(k_{ef}​⋅S)}$$
+
+$$F=(0.07/1.14)⋅e^{−(8.55⋅0.33)}=0.061⋅0.059≈0.0036$$
+
+Significado: El valor de F es numéricamente bajo, pero esto es una trampa del sistema. El sujeto no está en colapso activo (pánico), sino en un estado de estancamiento o parálisis por análisis. Al tener una Lucidez ($Ψ$) tan baja, el sistema no tiene "presión" suficiente para estallar, pero tampoco tiene potencia para obrar. Si un estímulo externo subiera la demanda de lucidez repentinamente, el sistema colapsaría de inmediato porque el blindaje estructural ($k_{ef​}⋅S$) está muy debilitado.
+
+### Diagnóstico del Sistema:
+
+> - **Fractura de Recuperación**: **Activa**. Existe una disonancia crítica porque el Impulso ($x_{ef},D$​) es nulo (0.0) mientras que la Reparación ($M$) es bajísima (0.22 normalizado). El sistema está intentando "pedir" energía que no tiene cómo procesar, lo que genera un desgaste sin avance.
+
+> - **Índice $τ$:** $τ = Γ/k_{ef}​≈2.21/8.55≈0.25$
+>   - **Interpretación**: Aunque el valor está por debajo de 1.0 (Autonomía), la calidad de esa autonomía es pobre. El sujeto no es dependiente químico de la sustancia para existir, pero ha usado la cafeína para "inflar" una tensión ($N$) que su estructura ($k_{ef}$​) no puede canalizar hacia la lucidez.
+
+> - **Estado General:** **Servidumbre Pasional**. El sujeto es víctima de sus afecciones (mal sueño + decepción por δRPE​ + exceso de tensión por café). Su Conatus está operando al mínimo, simplemente sobreviviendo al ruido interno.
+
+## Tarea Práctica para el alumno:
+
+**Detecta tu $δ_{RPE}$​ de hoy:**
+
+- Piensa en algo que hiciste hoy esperando un resultado (ej: enviar un mensaje, hacer una tarea).
+- ¿El resultado fue mejor o peor de lo esperado?
+- ¿Cómo afectó eso a tus ganas de seguir haciendo cosas en la siguiente hora? (Ahí viste a tu $x_{ef},D$​ en acción).
