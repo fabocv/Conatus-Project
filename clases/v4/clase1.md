@@ -175,5 +175,3 @@ Mensaje final:
 
 > No estamos reduciendo al ser humano a números.  
 > Estamos **ordenando lo suficiente** como para comprender sin juzgar.
-
-## [Ir a la CLASE 2: Trayectorias del Conatus](./clase3.md)
