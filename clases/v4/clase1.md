@@ -60,23 +60,23 @@ No estamos hablando de *una sola variable*; Estamos hablando de un **estado comp
 
 Un estado es:
 
-una *foto* instantánea del sistema en múltiples dimensiones.
+- una *foto* instantánea del sistema en múltiples dimensiones.
 
 Eso, en ingeniería, se llama **vector de estado**.
 
 #### 2.2 Analogía simple
 
-Piensa en un dron:
+Piensa en un *dron*:
 
 - está a una altura del suelo
-- a una velocidad
-- con % de batería
+- con una cierta velocidad
+- con un % de batería
 - con una orientación
 
 No se describe con un número.
 Se describe con un vector.
 
-👉 El ser humano, de forma modelada y limitada, también.
+> El ser humano, de forma modelada y limitada, también puede describirse con un vector.
 
 #### 2.3 Definición clave (primer puente matemático)
 
@@ -84,7 +84,7 @@ Por eso definimos:
 
 $$S_{int}=[D,N,G,Glu,S,O,ACh,C,M,E,I]$$
 
-Donde S_{int}$ define a cada componente como una dimensión funcional distinta, en conjunto, definen cómo el sistema puede comportarse.
+Donde $S_{int}$ define a cada componente como una dimensión funcional distinta, en conjunto, definen cómo el sistema puede comportarse.
 
 ### 3. Separación fundamental: estado vs estructura
 
@@ -92,13 +92,9 @@ Aquí ocurre algo crucial, tanto filosófico como matemático.
 
 #### 3.1 Error común (que evitamos)
 
-Confundir:
+  Confundir:
 
-**cómo me siento hoy?**
-
-con
-
-**qué tan fuerte soy estructuralmente?**
+  * **¿cómo me siento hoy?** VS **¿qué tan fuerte soy estructuralmente?**
 
 Spinoza diría:
 
@@ -138,7 +134,7 @@ En humanos:
 
 👉 Las relaciones no son aditivas.
 
-4.2 Traducción matemática
+#### 4.2 Traducción matemática
 
 Por eso usamos:
 
@@ -146,7 +142,7 @@ Por eso usamos:
 - exponentes
 - divisores
 
-Ejemplo clave:
+**Ejemplo clave:** $G_{ef}$, el freno del impulso efectivo lo definimos como sigue
 
 $$G_{ef}=G⋅S⋅e^{−N}$$
 
@@ -160,9 +156,27 @@ Esto no es capricho:
 
 - es cómo funcionan los sistemas bajo carga y cómo se vive subjetivamente
 
-5. El vector operativo $x_{ef}$: lo que realmente ocurre
+#### 4.3 ¿Como medimos esos valores?
 
-Hasta ahora teníamos inventario de funciones.
+Para el caso del ejemplo anterior, necesitamos tres variables endógenas proxy (aproximaciones femenológicas)
+
+* **Freno (G) (CLÚSTER 3: Filtro y Regulación):**
+    1.  Control de impulsos.
+    2.  Capacidad de "no hacer".
+
+* **Seguridad (S) (CLÚSTER 4: Arraigo):**
+    1.  Sensación de estatus/competencia.
+    2.  Confianza en el futuro inmediato.
+
+* **Tensión (N) (CLÚSTER 2: Conquista y Motor):**
+    1.  Urgencia/Presión física.
+    2.  Incapacidad para relajarse.
+
+Siguiendo los principios de *Furr & Bacharach*, no confiamos en ítems únicos. Usamos **Índices Compuestos** (promedio de ítems correlacionados) para reducir la varianza del error.
+
+## 5. El vector operativo $x_{ef}$: lo que realmente ocurre
+
+Hasta ahora teníamos inventario de variables.
 
 Ahora preguntamos:
 
@@ -200,7 +214,7 @@ Spinoza distingue:
 
 El café, el alcohol, el fármaco:
 
-"no son mi potencia, son fuerzas externas que deforman mi expresión"
+* "no son mi potencia, son fuerzas externas que deforman mi expresión"
 
 Por eso definimos: $Γ(X)$
 
@@ -211,6 +225,12 @@ Matemáticamente:
 - no cambian el estado base
 - cambian la ganancia del sistema
 
+Prácticamente:
+- El café me da animos para seguir trabajando
+- El tabaco me relaja un momento
+- El alcohol me distiende, etc.
+
+Las sustancias alteran el estado base del ser *(a eso llamamos deformación)*
 
 ## 7. Fragilidad $F$: cuándo el sistema se rompe
 
@@ -220,8 +240,8 @@ $$F=\frac{Ψ_{ef}}{1+Gef}⋅e^{−(k_{ef}⋅S)}$$
 
 **Lectura humana:**
 
-alta claridad sin filtro → **peligro**
-sin estructura ni seguridad → **colapso**
+- alta claridad sin filtro → **peligro**
+- sin estructura ni seguridad → **colapso**
 
 > la lucidez aumenta el riesgo si no hay sostén
 
@@ -261,19 +281,19 @@ Esto es:
 
 Clave pedagógica:
 
-el estrés no destruye inmediatamente lo aprendido, pero sí puede impedir usarlo
+> el estrés no destruye inmediatamente lo aprendido, pero sí puede impedir usarlo
 
 Por eso:
 
-$$k_{ef}=k⋅e^{−δ(C−C0)^2}$$
+$$k_{ef}=k⋅e^{−δ(C−C_0)^2}$$
 
-Zona óptima.
-Fuera de ella:
+El aprendizaje efectivo es el habitus de aprender ($k$) afectado bajo condiciones de estrés (cortisol)
 
-- no accedes a tu experiencia
+Fuera de zonas desreguladas de cortisol
+- no accedes a tu experiencia bajo eventos traumáticos
 - no “eres tú mismo”
 
-Fenomenológicamente exacto.
+La interpretación femenológica concuerda y es representado por $k_{ef}$
 
 ## 10. ¿Por qué todo esto es vectorial y no narrativo?
 

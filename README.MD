@@ -59,7 +59,7 @@ Siguiendo los principios de *Furr & Bacharach*, no confiamos en ítems únicos. 
     1.  Facilidad para cambiar de tarea.
     2.  Apertura a nueva información.
 
-### CLÚSTER 3: Filtro y Regulación ($G, Glu$)
+### CLÚSTER 3: Filtro y Regulación ($G, Glu, \Psi$)
 * **Freno (G):**
     1.  Control de impulsos.
     2.  Capacidad de "no hacer".
