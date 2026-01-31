@@ -320,3 +320,6 @@ Este modelo no dice:
 Dice:
 
 dadas estas condiciones, este es el espacio de movimiento posible.
+
+---
+## [Ir a la clase 2](./clase2.md)
