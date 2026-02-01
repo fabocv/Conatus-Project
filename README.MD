@@ -2,6 +2,8 @@
 
 > Autor: Fabián Catalán
 
+> Nota: El proyecto se tomará una pausa para pasar a una version 5 más consistente.
+
 **Documento de Especificación Técnica, Psicométrica y Fenomenológica**
 
 Este modelo describe la capacidad de un sujeto para perseverar en su ser (*Conatus*), integrando principios de psiquiatría computacional, dinámica de sistemas biológicos y psicometría validada.
@@ -174,7 +176,7 @@ Incorpora el **Error de Predicción de Recompensa (RPE)** (*Montague, 2012*). La
 Computación secuencial para evitar dependencias circulares.
 
 1. **Impulso Efectivo:** 
-$$x_{ef,D} = (D + δ_RPE) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
+$$x_{ef,D} = (D + δ_{RPE}) \cdot Γ_D \cdot (1 - 0.2(N \cdot Γ_N))$$
 
 2. **Filtro Efectivo (Consumo de freno por impulso):** 
 $$x_{ef,G} = (G \cdot Γ_G) \cdot (S \cdot Γ_S) \cdot (1 - α \cdot x_{ef,D})$$

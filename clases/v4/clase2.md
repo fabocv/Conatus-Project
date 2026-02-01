@@ -124,7 +124,7 @@ $$Γ_N​=1+(1.4⋅1.0⋅e−0.14⋅1)≈2.21$$
 
 $$Γ_D​=1+(1.2⋅1.0⋅e−0.14⋅1)≈2.04$$
 
-> **Resultado**: La cafeína está multiplicando su tensión ($N$) por 2.21 y su impulso ($D$) por 2.04.
+> **Resultado de deformación de sustancias**: La cafeína está multiplicando su tensión ($N$) por 2.21 y su impulso ($D$) por 2.04.
 
 ### 3. Cascada de Salida Operativa ($x_{ef}$​)
 
@@ -136,7 +136,7 @@ $$x_{ef,D}​=max(0,(D_{norm}​+δ_{RPE_norm​})⋅Γ_D​⋅(1−0.2(N_{norm�
 
 Aplicando valores normalizados: $x_{ef,D}​=max(0,(0.44−0.44)⋅…)=0$
 
-> **Interpretación**: La decepción ($δ_{RPE}$​) anuló por completo el efecto motor del café. El sujeto tiene energía física, pero cero ganas de hacer cosas.
+> **Interpretación de impulso**: La decepción ($δ_{RPE}$​) anuló por completo el efecto motor del café. El sujeto tiene energía física, pero cero ganas de hacer cosas.
 
 ### Paso B: El Filtro ($x_{ef},G$​)
 
@@ -146,7 +146,7 @@ Como $x_{ef},D$​ es 0, el filtro no se ve saboteado por el impulso, pero está
 
 $$x_{ef,G}​=(0.44⋅1)⋅(0.33⋅1)⋅(1−0)≈0.14$$
 
-> **Interpretación**: Tiene un filtro bajísimo. No puede frenar sus pensamientos negativos.
+> **Interpretación de filtro**: Tiene un filtro bajísimo. No puede frenar sus pensamientos negativos.
 
 ### Paso C: La Lucidez ($x_{ef,Ψ}$​)
 
@@ -154,7 +154,7 @@ $$x_{ef,Ψ}​=(1−(Glu⋅Γ_{Glu}​))⋅(1+(N⋅Γ_N​)O​)⋅(1+ρ⋅ACh)$
 
 $$x_{ef,Ψ​}=(1−0.66)⋅(0.55/(1+0.77⋅2.21))⋅1.05≈0.07$$
 
-> **Interpretación**: Lucidez casi inexistente. El ruido mental ($Glu$) y la tensión disparada por el café ($N$) "nublaron" su visión.
+> **Interpretación de lucidez**: Lucidez casi inexistente. El ruido mental ($Glu$) y la tensión disparada por el café ($N$) "nublaron" su visión.
 
 ### Paso D: fortaleza
 
@@ -166,7 +166,7 @@ Cálculo:
 - **Cuadrado de la diferencia:** $0.25^2=0.0625$
 - **Argumento del Exponente**: $−2.5⋅0.0625=−0.15625$
 - **Resultado**: $k_{ef}​=10⋅e^{−0.15625}≈8.55$
-- **Interpretación**: Aunque el sujeto "vale" 10 en fortaleza, su nivel de estrés actual solo le permite usar el 85.5% de su capacidad. Ha perdido casi un 15% de su resiliencia solo por la tensión biológica.
+- **Interpretación fortaleza (k)**: Aunque el sujeto "vale" 10 en fortaleza, su nivel de estrés actual solo le permite usar el 85.5% de su capacidad. Ha perdido casi un 15% de su resiliencia solo por la tensión biológica.
 
 ### 4. Resultado Final: Fragilidad (F)
 
